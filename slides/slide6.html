@@ -8,69 +8,113 @@
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    .flow-wrap {
+    .workflow-container {
       display: flex;
-      justify-content: space-around;
-      align-items: center;
+      flex-direction: column;
+      gap: var(--spacing-lg);
       flex: 1;
-      padding: var(--spacing-lg);
     }
-    .flow-step {
-      width: 140px;
-      text-align: center;
-    }
-    .flow-icon {
-      width: 80px;
-      height: 80px;
-      background: var(--gradient-primary);
+    .workflow-description {
+      background: rgba(255, 255, 255, 0.95);
       border: var(--border-sharp);
-      margin: 0 auto var(--spacing-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
+      padding: var(--spacing-lg);
+      border-radius: calc(var(--pixel-size) * 3);
+      box-shadow: var(--shadow-pixel);
     }
-    .flow-arrow {
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+      margin: var(--spacing-lg) 0;
+    }
+    .step-card {
+      background: var(--gradient-surface);
+      border: var(--border-sharp);
+      padding: var(--spacing-lg);
+      text-align: center;
+      border-radius: calc(var(--pixel-size) * 2);
+      transition: all var(--transition-normal);
+    }
+    .step-card:hover {
+      transform: translateY(-5px);
+      background: var(--gradient-primary);
+      color: white;
+    }
+    .step-icon {
       font-size: 2rem;
-      color: var(--color-accent);
+      margin-bottom: var(--spacing-sm);
+    }
+    .workflow-benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+    }
+    .benefit-card {
+      background: var(--gradient-info);
+      border: var(--border-sharp);
+      padding: var(--spacing-md);
+      border-radius: calc(var(--pixel-size) * 2);
+      color: var(--color-dark);
     }
   </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
     <header class="slide-header">
-      <h1 class="slide-title">第二次跃迁：工作流</h1>
-      <p class="slide-subtitle">FROM CHAT TO WORKFLOW</p>
+      <h1 class="slide-title">工作流构建：从对话到流水线</h1>
+      <p class="slide-subtitle">FROM CHAT TO ASSEMBLY LINE</p>
     </header>
 
     <main class="slide-content">
-      <section class="mb-4">
-        <h2 class="content-title">Dify + API + 知识库</h2>
-        <p>将往期剧本资产投喂成<strong>向量数据库</strong>，让AI具备长久记忆与稳定风格。</p>
-      </section>
+      <div class="workflow-container">
+        <div class="workflow-description">
+          <h2 class="content-title">Dify + API + 向量知识库</h2>
+          <p>将过去两年的剧本资产转化为<strong>可检索的向量数据库</strong>，让AI具备长期记忆与稳定的创作风格，彻底告别"健忘实习生"模式。</p>
+        </div>
 
-      <div class="flow-wrap">
-        <div class="flow-step">
-          <div class="flow-icon">📚</div>
-          <div class="font-pixel font-0-7">原始素材</div>
+        <div class="workflow-steps">
+          <div class="step-card">
+            <div class="step-icon">📚</div>
+            <h3 class="font-pixel font-0-9">资产数字化</h3>
+            <p class="font-0-8">剧本、大纲、角色设定全部向量化存储</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">🛠️</div>
+            <h3 class="font-pixel font-0-9">流程编排</h3>
+            <p class="font-0-8">Dify可视化搭建多节点工作流</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">🎯</div>
+            <h3 class="font-pixel font-0-9">稳定交付</h3>
+            <p class="font-0-8">按工序生产，质量一致，效率倍增</p>
+          </div>
         </div>
-        <div class="flow-arrow">➜</div>
-        <div class="flow-step">
-          <div class="flow-icon bg-secondary">🛠️</div>
-          <div class="font-pixel font-0-7">Dify编排</div>
-        </div>
-        <div class="flow-arrow">➜</div>
-        <div class="flow-step">
-          <div class="flow-icon bg-accent">🎯</div>
-          <div class="font-pixel font-0-7">稳定产出</div>
-        </div>
-      </div>
 
-      <div class="pixel-card-grid mt-4">
-        <div class="pixel-card-item">
-          <div class="card-title">四大工作流</div>
-          <p class="card-description">大纲生成、脚本创作、海报文案、格式整理</p>
+        <div class="workflow-description">
+          <h2 class="content-title">四大核心工作流</h2>
+          <div class="pixel-card-grid">
+            <div class="pixel-card-item">
+              <div class="card-title">大纲生成器</div>
+              <p class="card-description">输入关键词，自动产出结构完整的故事大纲</p>
+            </div>
+            <div class="pixel-card-item">
+              <div class="card-title">脚本创作</div>
+              <p class="card-description">基于大纲生成详细剧本，包含对白与场景描述</p>
+            </div>
+            <div class="pixel-card-item">
+              <div class="card-title">海报文案</div>
+              <p class="card-description">自动生成宣传文案与社交媒体内容</p>
+            </div>
+            <div class="pixel-card-item">
+              <div class="card-title">格式整理师</div>
+              <p class="card-description">统一格式标准，适配不同平台发布需求</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="colorful-text-box secondary">
+          <h3 class="font-pixel">效率提升</h3>
+          <p>工作流构建后，重复性任务的完成时间减少70%，质量稳定性提升至95%以上。</p>
         </div>
       </div>
     </main>

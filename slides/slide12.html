@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .column-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
@@ -18,31 +25,37 @@
     <main class="slide-content">
       <div class="two-column-layout">
         <div class="column">
-          <h2 class="column-title">核心进化回顾</h2>
-          <ul class="pixel-list">
-            <li class="pixel-list-item">提问技巧（基础）</li>
-            <li class="pixel-list-item">流程封装（进阶）</li>
-            <li class="pixel-list-item">多模态赋能（扩展）</li>
-            <li class="pixel-list-item">智能技能开发（跃迁）</li>
-          </ul>
+          <div class="column-content">
+            <h2 class="column-title">核心进化回顾</h2>
+            <ul class="pixel-list">
+              <li class="pixel-list-item">提问技巧（基础）</li>
+              <li class="pixel-list-item">流程封装（进阶）</li>
+              <li class="pixel-list-item">多模态赋能（扩展）</li>
+              <li class="pixel-list-item">智能技能开发（跃迁）</li>
+            </ul>
+          </div>
+          <div class="colorful-text-box primary mt-auto">
+            <h3 class="font-pixel">进化逻辑</h3>
+            <p>从"使用工具"到"创造工具"，从"被动适应"到"主动构建"。</p>
+          </div>
         </div>
 
         <div class="column">
-          <h2 class="column-title">可复制的三步行动</h2>
-          <div class="section-card">
-            <p><strong>1. 梳理：</strong> 找出你重复性最高的事</p>
-            <p class="mt-2"><strong>2. 封装：</strong> 利用工具/代码包成"技能"</p>
-            <p class="mt-2"><strong>3. 积累：</strong> 持续构建你的"数字资产"</p>
+          <div class="column-content">
+            <h2 class="column-title">可复制的三步行动</h2>
+            <div class="section-card">
+              <p><strong>1. 梳理：</strong> 找出你重复性最高的事</p>
+              <p class="mt-2"><strong>2. 封装：</strong> 利用工具/代码包成"技能"</p>
+              <p class="mt-2"><strong>3. 积累：</strong> 持续构建你的"数字资产"</p>
+            </div>
+          </div>
+          <div class="colorful-text-box secondary mt-auto">
+            <h3 class="font-pixel">核心原则</h3>
+            <p>AI不会替代你，但会用AI并且会造工具的人，正在替代只会用AI的人。</p>
           </div>
         </div>
       </div>
 
-      <div class="colorful-text-box accent">
-        <h3 class="font-pixel">重点提示</h3>
-        <p>本页内容采用8-bit像素风格设计，支持键盘导航和全屏展示。</p>
-      </div>
-
-    </main>
 
     <footer class="slide-footer">
       <div class="slide-number">12 / 15</div>

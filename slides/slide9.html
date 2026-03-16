@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .two-column-layout .column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .column-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
@@ -18,24 +31,34 @@
     <main class="slide-content">
       <div class="two-column-layout">
         <div class="column">
-          <h2 class="column-title">核心步骤</h2>
-          <ul class="pixel-list">
-            <li class="pixel-list-item"><strong>整理：</strong> 往期剧本打包成"记忆库"</li>
-            <li class="pixel-list-item"><strong>编写：</strong> 用 Claude 拆解创作流程指南</li>
-            <li class="pixel-list-item"><strong>封装：</strong> 喂给反重力 AI 建立自动调用</li>
-          </ul>
+          <div class="column-content">
+            <h2 class="column-title">核心步骤</h2>
+            <ul class="pixel-list">
+              <li class="pixel-list-item"><strong>整理：</strong> 往期剧本打包成"记忆库"</li>
+              <li class="pixel-list-item"><strong>编写：</strong> 用 Claude 拆解创作流程指南</li>
+              <li class="pixel-list-item"><strong>封装：</strong> 喂给反重力 AI 建立自动调用</li>
+            </ul>
+          </div>
+          <div class="colorful-text-box secondary mt-auto">
+            <p class="font-0-9"><strong>关键：</strong> 将隐式知识转化为显式、可复用的技能包</p>
+          </div>
         </div>
 
         <div class="column">
-          <h2 class="column-title">惊艳效果</h2>
-          <div class="pixel-card-grid grid-1-col gap-sm">
-            <div class="pixel-card-item text-left bg-secondary">
-              <p><strong>输入：</strong> "我想写个关于分享的故事"</p>
-              <p class="mt-2"><strong>输出：</strong> 自动检索库 -> 极高完成度大纲</p>
+          <div class="column-content">
+            <h2 class="column-title">惊艳效果</h2>
+            <div class="pixel-card-grid grid-1-col gap-sm">
+              <div class="pixel-card-item text-left bg-secondary">
+                <p><strong>输入：</strong> "我想写个关于分享的故事"</p>
+                <p class="mt-2"><strong>输出：</strong> 自动检索库 -> 极高完成度大纲</p>
+              </div>
+              <div class="pixel-card-item text-left bg-accent">
+                <p><strong>结论：</strong> 质量极其稳定，几乎不需要大改。</p>
+              </div>
             </div>
-            <div class="pixel-card-item text-left bg-accent">
-              <p><strong>结论：</strong> 质量极其稳定，几乎不需要大改。</p>
-            </div>
+          </div>
+          <div class="colorful-text-box primary mt-auto">
+            <p class="font-0-9"><strong>效率提升：</strong> 创作时间从几天缩短到几小时，质量一致性大幅提高</p>
           </div>
         </div>
       </div>

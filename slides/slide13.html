@@ -7,39 +7,112 @@
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .action-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      gap: var(--spacing-lg);
+    }
+    .action-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+      flex: 1;
+    }
+    .action-card {
+      background: var(--gradient-surface);
+      border: var(--border-sharp);
+      padding: var(--spacing-lg);
+      border-radius: calc(var(--pixel-size) * 3);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      transition: all var(--transition-normal);
+    }
+    .action-card:hover {
+      transform: translateY(-5px);
+      background: var(--gradient-primary);
+      color: white;
+    }
+    .action-number {
+      font-family: var(--font-pixel);
+      font-size: 2rem;
+      color: var(--color-accent);
+      margin-bottom: var(--spacing-sm);
+    }
+    .tools-section {
+      background: var(--gradient-dark);
+      border: var(--border-sharp);
+      padding: var(--spacing-lg);
+      border-radius: calc(var(--pixel-size) * 3);
+      color: white;
+      text-align: center;
+    }
+    .tool-list {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+    .tool-item {
+      font-family: var(--font-pixel);
+      font-size: 0.9rem;
+      color: var(--color-accent);
+    }
+  </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
     <header class="slide-header">
-      <h1 class="slide-title">行动建议</h1>
-      <p class="slide-subtitle">YOUR NEXT STEPS</p>
+      <h1 class="slide-title">立即行动指南</h1>
+      <p class="slide-subtitle">YOUR PRACTICAL NEXT STEPS</p>
     </header>
 
     <main class="slide-content">
-      <div class="pixel-card-grid">
-        <div class="pixel-card-item">
-          <div class="card-title">梳理流程</div>
-          <p class="card-description">分析工作日志，找出最占用时间的"机械式"任务。</p>
+      <div class="action-container">
+        <div class="action-cards">
+          <div class="action-card">
+            <div class="action-number">01</div>
+            <h3 class="font-pixel">梳理流程</h3>
+            <p class="mt-2">分析工作日志，识别重复性高、耗时的"机械式"任务。记录下频率、用时和痛点。</p>
+          </div>
+          <div class="action-card">
+            <div class="action-number">02</div>
+            <h3 class="font-pixel">工具封装</h3>
+            <p class="mt-2">不要停留在提问，用 Dify 构建工作流或创建 Skill 将流程固化。从最简单的一步开始。</p>
+          </div>
+          <div class="action-card">
+            <div class="action-number">03</div>
+            <h3 class="font-pixel">数字积累</h3>
+            <p class="mt-2">每个成功的自动化都是你的数字资产。积累越多，未来效率提升越显著。</p>
+          </div>
         </div>
-        <div class="pixel-card-item">
-          <div class="card-title">工具封装</div>
-          <p class="card-description">不要只是提问，尝试用 Dify 或 Skill 将流程固定下来。</p>
+
+        <div class="tools-section">
+          <h3 class="font-pixel">推荐工具栈</h3>
+          <div class="tool-list">
+            <div class="tool-item">Dify</div>
+            <div class="tool-item">Claude</div>
+            <div class="tool-item">Anti Gravity</div>
+            <div class="tool-item">GitHub Actions</div>
+            <div class="tool-item">Google Colab</div>
+            <div class="tool-item">Notion API</div>
+          </div>
         </div>
-        <div class="pixel-card-item">
-          <div class="card-title">数字积累</div>
-          <p class="card-description">每一次成功的 Skill，都是你未来效率的基石。</p>
+
+        <div class="colorful-text-box accent">
+          <h3 class="font-pixel">关键提醒</h3>
+          <p>从最小的可自动化任务开始，快速验证，迭代优化。不要追求一步到位。</p>
         </div>
-      </div>
-      
-      <div class="highlight-box mt-4">
-        <p class="font-pixel font-0-9">TOOLS: Dify | Claude | Anti Gravity | GitHub Actions</p>
       </div>
     </main>
 
     <footer class="slide-footer">
       <div class="slide-number">13 / 15</div>
       <div class="slide-progress"><div class="slide-progress-bar pct-86-6"></div></div>
-      <div class="slide-title">下一步行动建议</div>
+      <div class="slide-title">立即行动指南</div>
     </footer>
   </div>
 </body>
