@@ -20,6 +20,7 @@
   flex-direction: column;
   min-height: 0; /* 关键：允许内容在必要时收缩 */
   overflow-y: auto; /* 允许内容滚动，如果超出 */
+  scroll-behavior: smooth; /* 平滑滚动 */
 }
 
 /* 自定义滚动条样式 */

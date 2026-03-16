@@ -370,23 +370,15 @@ body {
   --font-body-pixel: 'Press Start 2P', 'Courier New', 'Microsoft YaHei', monospace, sans-serif;
 }
 
-/* 统一背景图：简洁线条与渐变色背景，不影响文字阅读 */
+/* 统一背景图：使用第一张幻灯片的抽象线条与渐变背景 */
 .slide-page-bg {
   background-image:
-    /* 网格线条背景 */
-    linear-gradient(to right, rgba(var(--color-dark-rgb), 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(var(--color-dark-rgb), 0.03) 1px, transparent 1px),
-    /* 中心渐变放射 */
-    radial-gradient(circle at 70% 30%, rgba(var(--color-primary-rgb), 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 30% 70%, rgba(var(--color-accent-rgb), 0.05) 0%, transparent 40%),
-    /* 主背景渐变 */
-    var(--gradient-surface);
-  background-size:
-    40px 40px, /* 网格尺寸 */
-    40px 40px,
-    100% 100%,
-    100% 100%,
-    100% 100%;
+    /* 抽象线条背景 */
+    linear-gradient(45deg, rgba(var(--color-light-rgb), 0.1) 25%, transparent 25%, transparent 50%, rgba(var(--color-light-rgb), 0.1) 50%, rgba(var(--color-light-rgb), 0.1) 75%, transparent 75%, transparent),
+    linear-gradient(-45deg, rgba(var(--color-light-rgb), 0.1) 25%, transparent 25%, transparent 50%, rgba(var(--color-light-rgb), 0.1) 50%, rgba(var(--color-light-rgb), 0.1) 75%, transparent 75%, transparent),
+    /* 渐变背景 */
+    var(--gradient-primary);
+  background-size: 60px 60px, 60px 60px, 100% 100%;
   background-position: center;
 }
 
