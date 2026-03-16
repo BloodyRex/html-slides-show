@@ -59,10 +59,22 @@
       font-family: var(--font-pixel);
       font-size: 0.8rem;
     }
+    .cover-tip-box {
+      background: rgba(255, 255, 255, 0.2);
+      border: var(--border-sharp);
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-family: var(--font-pixel);
+      font-size: 0.7rem;
+      color: white;
+      margin-bottom: var(--spacing-md);
+      text-align: center;
+      border-radius: calc(var(--pixel-size) * 2);
+      backdrop-filter: blur(4px);
+    }
   </style>
 </head>
 <body>
-  <div class="slide-page p-0">
+  <div class="slide-page slide-page-bg p-0">
     <div class="cover-wrapper animate-fade">
       <h1 class="main-title">从"写剧本"到"造工具"</h1>
       <p class="subtitle">一个儿童教育创业者的AI生产力进化史</p>
@@ -72,6 +84,8 @@
         <div class="pixel-line"></div>
         <div class="icon-box">🤖</div>
       </div>
+
+      <div class="cover-tip-box">使用 ← → 键导航，F11 全屏</div>
 
       <div class="info-bar">
         <span>REX</span>

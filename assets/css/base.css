@@ -360,3 +360,127 @@ body {
 .slide-container {
   background: white;
 }
+
+/* ==================== */
+/* 新增优化样式 */
+/* ==================== */
+
+/* 正文字体优化：使用与标题风格一致的同类字体 */
+:root {
+  --font-body-pixel: 'Press Start 2P', 'Courier New', 'Microsoft YaHei', monospace, sans-serif;
+}
+
+/* 统一背景图：简洁线条与渐变色背景，不影响文字阅读 */
+.slide-page-bg {
+  background-image:
+    /* 网格线条背景 */
+    linear-gradient(to right, rgba(var(--color-dark-rgb), 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--color-dark-rgb), 0.03) 1px, transparent 1px),
+    /* 中心渐变放射 */
+    radial-gradient(circle at 70% 30%, rgba(var(--color-primary-rgb), 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 30% 70%, rgba(var(--color-accent-rgb), 0.05) 0%, transparent 40%),
+    /* 主背景渐变 */
+    var(--gradient-surface);
+  background-size:
+    40px 40px, /* 网格尺寸 */
+    40px 40px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  background-position: center;
+}
+
+/* 带颜色填充的文字框 - 默认样式 */
+.colorful-text-box {
+  background: var(--gradient-primary);
+  border: var(--border-sharp);
+  padding: var(--spacing-lg);
+  border-radius: calc(var(--pixel-size) * 3);
+  color: var(--color-light);
+  box-shadow: var(--shadow-pixel);
+  margin: var(--spacing-md) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.colorful-text-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--pixel-size) * 2);
+  background: rgba(var(--color-light-rgb), 0.3);
+}
+
+.colorful-text-box.accent {
+  background: var(--gradient-accent);
+  color: var(--color-dark);
+}
+
+.colorful-text-box.secondary {
+  background: var(--gradient-secondary);
+  color: var(--color-dark);
+}
+
+/* 正文字体应用 */
+.slide-content p,
+.slide-content li,
+.slide-content .card-description,
+.slide-content .timeline-description,
+.slide-content .quote-box,
+.slide-content .content-section,
+.slide-content .column p,
+.slide-content .sidebar p {
+  font-family: var(--font-body-pixel);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* 小屏幕调整 */
+@media (max-width: 768px) {
+  .slide-content p,
+  .slide-content li,
+  .slide-content .card-description,
+  .slide-content .timeline-description,
+  .slide-content .quote-box,
+  .slide-content .content-section,
+  .slide-content .column p,
+  .slide-content .sidebar p {
+    letter-spacing: 0.03em;
+    line-height: 1.7;
+    font-size: 0.9rem;
+  }
+}
+
+/* 确保标题字体不变 */
+.slide-title,
+.content-title,
+.card-title,
+.timeline-title,
+.column-title {
+  font-family: var(--font-pixel);
+}
+
+/* 滑动优化 */
+.slide-content {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS平滑滚动 */
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .slide-page-bg {
+    background-size:
+      20px 20px,
+      20px 20px,
+      100% 100%,
+      100% 100%,
+      100% 100%;
+  }
+
+  .colorful-text-box {
+    padding: var(--spacing-md);
+  }
+}
