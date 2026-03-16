@@ -17,6 +17,20 @@
     .two-column-layout .column {
       min-height: 0;
       overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .column > * {
+      flex-shrink: 0;
+    }
+    .column > :last-child {
+      margin-top: auto;
+    }
+    .pixel-card,
+    .colorful-text-box,
+    .pixel-card-grid {
+      overflow-y: auto;
+      min-height: 0;
     }
   </style>
 </head>

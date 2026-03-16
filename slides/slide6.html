@@ -16,21 +16,21 @@
       min-height: 0;
     }
     .workflow-description {
-      overflow-y: auto;
-      max-height: 100%;
-    }
-    .workflow-description {
       background: rgba(255, 255, 255, 0.95);
       border: var(--border-sharp);
       padding: var(--spacing-lg);
       border-radius: calc(var(--pixel-size) * 3);
       box-shadow: var(--shadow-pixel);
+      overflow-y: auto;
+      flex: 1;
+      min-height: 0;
     }
     .workflow-steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--spacing-md);
       margin: var(--spacing-lg) 0;
+      flex-shrink: 0;
     }
     .step-card {
       background: var(--gradient-surface);
@@ -60,6 +60,9 @@
       padding: var(--spacing-md);
       border-radius: calc(var(--pixel-size) * 2);
       color: var(--color-dark);
+    }
+    .colorful-text-box {
+      flex-shrink: 0;
     }
   </style>
 </head>

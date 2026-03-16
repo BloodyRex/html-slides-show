@@ -7,6 +7,28 @@
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* 确保两栏内容可以完全滚动显示 */
+    .two-column-layout .column {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow-y: auto;
+    }
+    .section-card,
+    .pixel-card-grid {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+    }
+    /* 优化间距，确保内容完整显示 */
+    .column > * {
+      flex-shrink: 0;
+    }
+    .column > :last-child {
+      margin-bottom: auto;
+    }
+  </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
