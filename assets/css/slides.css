@@ -58,9 +58,9 @@
 .slide-title {
   font-family: var(--font-pixel);
   font-size: 2.8rem;
-  color: var(--color-dark);
+  color: var(--color-light);
   margin-bottom: var(--spacing-xs);
-  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
 /* 页脚中的幻灯片标题 */

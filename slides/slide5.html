@@ -17,9 +17,8 @@
     }
     .section-card,
     .pixel-card-grid {
-      flex: 1;
-      min-height: 0;
-      overflow-y: auto;
+      flex: 1 1 auto;
+      min-height: 200px;
     }
     /* 优化间距，确保内容完整显示 */
     .column > * {
@@ -27,6 +26,10 @@
     }
     .column > :last-child {
       margin-bottom: auto;
+    }
+    /* 确保列表项有足够空间 */
+    .pixel-list-item {
+      margin-bottom: var(--spacing-sm);
     }
   </style>
 </head>

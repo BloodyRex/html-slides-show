@@ -64,6 +64,27 @@
     .colorful-text-box {
       flex-shrink: 0;
     }
+    /* 优化四大核心工作流显示框 */
+    .workflow-description:last-child {
+      flex: 2;
+      min-height: 350px;
+    }
+    .workflow-description .pixel-card-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+      height: 100%;
+    }
+    .workflow-description .pixel-card-item {
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .workflow-description .card-description {
+      line-height: 1.4;
+      overflow-y: auto;
+      max-height: 60px;
+    }
   </style>
 </head>
 <body>
