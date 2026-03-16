@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从"写剧本"到"造工具" - 封面页</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/slides.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    .cover-wrapper {
+      flex: 1;
+      background: var(--gradient-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: var(--spacing-xl);
+    }
+    .main-title {
+      font-family: var(--font-pixel);
+      font-size: clamp(2rem, 8vw, 4rem);
+      margin-bottom: var(--spacing-lg);
+      text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+    }
+    .subtitle {
+      font-size: clamp(1rem, 4vw, 1.8rem);
+      font-weight: 300;
+      opacity: 0.9;
+    }
+    .decors {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      margin: var(--spacing-xl) 0;
+    }
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      background: white;
+      border: var(--border-sharp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-dark);
+      font-size: 1.5rem;
+    }
+    .pixel-line {
+      width: 100px;
+      height: 4px;
+      background: var(--color-accent);
+    }
+    .info-bar {
+      margin-top: auto;
+      display: flex;
+      gap: var(--spacing-lg);
+      font-family: var(--font-pixel);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-page p-0">
+    <div class="cover-wrapper animate-fade">
+      <h1 class="main-title">从"写剧本"到"造工具"</h1>
+      <p class="subtitle">一个儿童教育创业者的AI生产力进化史</p>
+      
+      <div class="decors">
+        <div class="icon-box">✍️</div>
+        <div class="pixel-line"></div>
+        <div class="icon-box">🤖</div>
+      </div>
+
+      <div class="info-bar">
+        <span>REX</span>
+        <span>2026.03</span>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <div class="slide-number">1 / 15</div>
+      <div class="slide-progress"><div class="slide-progress-bar pct-6-6"></div></div>
+      <div class="slide-title">从"写剧本"到"造工具"</div>
+    </footer>
+  </div>
+</body>
+</html>

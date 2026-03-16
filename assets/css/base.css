@@ -1,0 +1,362 @@
+/* ── HTML Slides Show Design System ── */
+/* 基于8-bit像素风格设计系统 */
+
+:root {
+  /* ── 8-bit调色板 - 更加鲜明、饱满和现代 ── */
+  --color-primary: #6A4FF5;    /* 亮紫色 */
+  --color-secondary: #00C9B1;  /* 鲜艳蓝绿色 */
+  --color-accent: #FF6B35;     /* 活力橙色 */
+  --color-light: #FFFFFF;      /* 纯白色 */
+  --color-dark: #1A1A2E;       /* 深蓝黑 */
+  --color-success: #4CD964;    /* 亮绿色 */
+  --color-warning: #FFD166;    /* 亮琥珀黄 */
+  --color-error: #FF375F;      /* 鲜红色 */
+  --color-info: #5AC8FA;       /* 亮蓝色 */
+  --color-muted: #8A8D93;      /* 中性灰色 */
+
+  /* ── RGB颜色值（用于透明度） ── */
+  --color-primary-rgb: 106, 79, 245;
+  --color-secondary-rgb: 0, 201, 177;
+  --color-accent-rgb: 255, 107, 53;
+  --color-dark-rgb: 26, 26, 46;
+  --color-light-rgb: 255, 255, 255;
+
+  /* ── 渐变背景定义 - 饱满现代渐变 ── */
+  --gradient-primary: linear-gradient(135deg, #6A4FF5, #9D7AFF);
+  --gradient-secondary: linear-gradient(135deg, #00C9B1, #00E5C3);
+  --gradient-accent: linear-gradient(135deg, #FF6B35, #FF8E5C);
+  --gradient-success: linear-gradient(135deg, #4CD964, #7AFF94);
+  --gradient-warning: linear-gradient(135deg, #FFD166, #FFE299);
+  --gradient-info: linear-gradient(135deg, #5AC8FA, #8DE1FF);
+  --gradient-dark: linear-gradient(135deg, #1A1A2E, #2D3047);
+  --gradient-surface: linear-gradient(135deg, #FFFFFF, #F8F9FA);
+  --gradient-light: linear-gradient(135deg, #F8F9FA, #FFFFFF);
+  --gradient-radial-primary: radial-gradient(circle at center, #6A4FF5 0%, #9D7AFF 100%);
+  --gradient-radial-accent: radial-gradient(circle at center, #FF6B35 0%, #FF8E5C 100%);
+
+  /* ── 8-bit设计元素 ── */
+  --pixel-size: 6px;  /* 增加边框厚度，使图形更饱满 */
+  --border-sharp: var(--pixel-size) solid var(--color-dark);
+  --border-accent: var(--pixel-size) solid var(--color-accent);
+  --border-primary: var(--pixel-size) solid var(--color-primary);
+  --shadow-pixel: var(--pixel-size) var(--pixel-size) 0 rgba(0, 0, 0, 0.2);
+  --shadow-pixel-large: calc(var(--pixel-size) * 2) calc(var(--pixel-size) * 2) 0 rgba(0, 0, 0, 0.3);
+  --shadow-pixel-inset: inset var(--pixel-size) var(--pixel-size) 0 rgba(0, 0, 0, 0.1);
+
+  /* ── 字体定义 - 优化中英文混合排版 ── */
+  --font-main: 'Inter', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', system-ui, -apple-system, sans-serif;
+  --font-pixel: 'Press Start 2P', 'Microsoft YaHei', monospace, cursive;
+  --font-code: 'JetBrains Mono', 'Courier New', monospace;
+  --font-chinese: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'STXihei', sans-serif;
+
+  /* ── 布局尺寸 ── */
+  --slide-width: 100vw;
+  --slide-height: 56.25vw;
+  --max-slide-width: 1600px;
+  --max-slide-height: 900px;
+
+  /* ── 间距系统 ── */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+
+  /* ── 过渡动画 (减少抖动) ── */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ── 重置样式 ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-dark);
+  background: var(--color-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── 16:9幻灯片容器 ── */
+.slide-container {
+  aspect-ratio: 16/9;
+  max-width: var(--max-slide-width);
+  max-height: var(--max-slide-height);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  background: var(--gradient-light);
+}
+
+/* 确保iframe正确填充 */
+.slide-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── 8-bit元素样式 ── */
+.pixel-border {
+  border: var(--border-sharp);
+  box-shadow: var(--shadow-pixel);
+}
+
+.pixel-border-thick {
+  border: calc(var(--pixel-size) * 2) solid var(--color-dark);
+  box-shadow: var(--shadow-pixel-large);
+}
+
+.pixel-card {
+  background: var(--gradient-surface);
+  border: var(--border-sharp);
+  box-shadow: var(--shadow-pixel);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+  border-radius: calc(var(--pixel-size) * 2);
+}
+
+.pixel-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-pixel-large);
+  background: var(--gradient-primary);
+  color: var(--color-light);
+}
+
+.pixel-button {
+  background: var(--gradient-primary);
+  border: var(--border-sharp);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-light);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.pixel-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-pixel-large);
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+}
+
+.pixel-button:active {
+  transform: translate(0, 0);
+  box-shadow: var(--shadow-pixel);
+}
+
+/* ── 文字样式 ── */
+.text-pixel {
+  font-family: var(--font-pixel);
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+.text-high-contrast {
+  color: var(--color-dark);
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+.text-on-dark {
+  color: var(--color-light);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── 标题样式 ── */
+.h1 {
+  font-family: var(--font-pixel);
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-dark);
+}
+
+.h2 {
+  font-family: var(--font-pixel);
+  font-size: 2.5rem;
+  line-height: 1.3;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+.h3 {
+  font-family: var(--font-main);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-secondary);
+}
+
+.h4 {
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-dark);
+}
+
+/* ── 工具类 ── */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+
+/* ── 全屏样式 ── */
+:fullscreen .slide-container {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* ── 响应式调整 ── */
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 2.5rem;
+  }
+
+  .h2 {
+    font-size: 2rem;
+  }
+
+  .h3 {
+    font-size: 1.5rem;
+  }
+
+  .pixel-button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 12px;
+  }
+}
+
+/* ── 像素网格背景 ── */
+.pixel-grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center center;
+}
+
+/* ── 动画关键帧 (简化，减少动态) ── */
+@keyframes pixel-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pixel-slide-up-mod {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade {
+  animation: pixel-fade-in var(--transition-normal) ease-out;
+}
+
+.animate-slide-up {
+  animation: pixel-slide-up-mod var(--transition-normal) ease-out;
+}
+
+/* ── 布局增强 ── */
+.full-height { height: 100%; }
+.full-width { width: 100%; }
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+
+.section-card {
+  background: var(--gradient-light);
+  border: var(--border-sharp);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-pixel);
+  height: 100%;
+  border-radius: calc(var(--pixel-size) * 2);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--pixel-size);
+  background: var(--gradient-accent);
+}
+
+.text-justify { text-align: justify; }
+.text-uppercase { text-transform: uppercase; }
+.font-pixel { font-family: var(--font-pixel); }
+.font-main { font-family: var(--font-main); }
+
+/* ── 主题修正 ── */
+body {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+.slide-container {
+  background: white;
+}

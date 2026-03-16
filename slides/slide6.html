@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二阶段：工作流构建 - 幻灯片6</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/slides.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .flow-wrap {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex: 1;
+      padding: var(--spacing-lg);
+    }
+    .flow-step {
+      width: 140px;
+      text-align: center;
+    }
+    .flow-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border: var(--border-sharp);
+      margin: 0 auto var(--spacing-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+    }
+    .flow-arrow {
+      font-size: 2rem;
+      color: var(--color-accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-page animate-fade">
+    <header class="slide-header">
+      <h1 class="slide-title">第二次跃迁：工作流</h1>
+      <p class="slide-subtitle">FROM CHAT TO WORKFLOW</p>
+    </header>
+
+    <main class="slide-content">
+      <section class="mb-4">
+        <h2 class="content-title">Dify + API + 知识库</h2>
+        <p>将往期剧本资产投喂成<strong>向量数据库</strong>，让AI具备长久记忆与稳定风格。</p>
+      </section>
+
+      <div class="flow-wrap">
+        <div class="flow-step">
+          <div class="flow-icon">📚</div>
+          <div class="font-pixel font-0-7">原始素材</div>
+        </div>
+        <div class="flow-arrow">➜</div>
+        <div class="flow-step">
+          <div class="flow-icon bg-secondary">🛠️</div>
+          <div class="font-pixel font-0-7">Dify编排</div>
+        </div>
+        <div class="flow-arrow">➜</div>
+        <div class="flow-step">
+          <div class="flow-icon bg-accent">🎯</div>
+          <div class="font-pixel font-0-7">稳定产出</div>
+        </div>
+      </div>
+
+      <div class="pixel-card-grid mt-4">
+        <div class="pixel-card-item">
+          <div class="card-title">四大工作流</div>
+          <p class="card-description">大纲生成、脚本创作、海报文案、格式整理</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="slide-footer">
+      <div class="slide-number">6 / 15</div>
+      <div class="slide-progress"><div class="slide-progress-bar pct-40"></div></div>
+      <div class="slide-title">第二阶段：工作流构建</div>
+    </footer>
+  </div>
+</body>
+</html>

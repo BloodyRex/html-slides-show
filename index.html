@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML幻灯片展示工具 - 从"写剧本"到"造工具"</title>
+
+  <!-- 8-bit像素字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- 基础样式 -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/slides.css">
+
+  <!-- 图标字体 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* 主框架特定样式 */
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--gradient-dark);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      font-family: var(--font-main);
+      color: var(--color-light);
+    }
+
+    .header {
+      background: var(--gradient-primary);
+      border-bottom: var(--border-sharp);
+      padding: var(--spacing-sm) var(--spacing-xl);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: var(--font-pixel);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      color: white;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border: var(--border-sharp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      font-size: 1.2rem;
+    }
+
+    .controls-bar {
+      display: flex;
+      gap: var(--spacing-lg);
+      align-items: center;
+    }
+
+    .slide-container-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: var(--spacing-md);
+      position: relative;
+      overflow: hidden;
+      background: #121212;
+    }
+
+    .slide-container {
+      width: 100%;
+      height: 100%;
+      max-width: var(--max-slide-width);
+      max-height: var(--max-slide-height);
+      aspect-ratio: 16/9;
+      background: white;
+      border: var(--border-sharp);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .controls-overlay {
+      position: absolute;
+      bottom: var(--spacing-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: center;
+      background: rgba(33, 33, 33, 0.95);
+      padding: var(--spacing-sm) var(--spacing-md);
+      border: var(--border-sharp);
+      z-index: 50;
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+
+    .nav-button {
+      width: 44px;
+      height: 44px;
+      background: var(--gradient-primary);
+      border: var(--border-sharp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: white;
+      font-size: 1rem;
+      transition: transform 0.1s;
+    }
+
+    .nav-button:hover {
+      background: var(--gradient-accent);
+      transform: scale(1.05);
+    }
+
+    .nav-button:active {
+      transform: scale(0.95);
+    }
+
+    .slide-info {
+      font-family: var(--font-pixel);
+      font-size: 0.8rem;
+      color: white;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .progress-container {
+      width: 160px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: var(--color-accent);
+    }
+
+    .theme-selector {
+      position: absolute;
+      top: var(--spacing-md);
+      left: var(--spacing-md);
+      z-index: 60;
+    }
+
+    .theme-select {
+      background: #333;
+      color: white;
+      border: 2px solid #555;
+      padding: 5px 10px;
+      font-family: var(--font-pixel);
+      font-size: 0.7rem;
+    }
+
+    .fullscreen-button {
+      position: absolute;
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      z-index: 60;
+    }
+
+    .pixel-button {
+      background: var(--gradient-accent);
+      color: white;
+      border: var(--border-sharp);
+      padding: 8px 16px;
+      font-family: var(--font-pixel);
+      font-size: 0.7rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .header .logo span { display: none; }
+      .controls-overlay { width: 95%; gap: 5px; padding: 5px; }
+      .progress-container { display: none; }
+    }
+
+    /* 全屏模式样式 */
+    :fullscreen .header,
+    :fullscreen .controls-overlay,
+    :fullscreen .theme-selector,
+    :fullscreen .shortcuts-help {
+      display: none;
+    }
+
+    :fullscreen .slide-container-wrapper {
+      padding: 0;
+    }
+
+    :fullscreen .slide-container {
+      max-width: 100%;
+      max-height: 100%;
+      border: none;
+      box-shadow: none;
+    }
+
+    /* 加载指示器 */
+    .loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+
+    .pixel-loader {
+      width: 64px;
+      height: 64px;
+      border: var(--border-sharp);
+      position: relative;
+      background: var(--gradient-light);
+      animation: pixel-spin 2s linear infinite;
+    }
+
+    .pixel-loader::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      bottom: 4px;
+      background: var(--color-light);
+      border: 2px solid var(--color-dark);
+    }
+
+    @keyframes pixel-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- 头部 -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">
+        <i class="fas fa-gamepad"></i>
+      </div>
+      <span>HTML Slides Show</span>
+    </div>
+
+    <div class="controls-bar">
+      <div class="control-group">
+        <label for="auto-advance-toggle">
+          <input type="checkbox" id="auto-advance-toggle">
+          自动前进
+        </label>
+        <span id="auto-advance-status" class="auto-advance-status disabled">OFF</span>
+      </div>
+
+      <div class="control-group">
+        <label for="slide-select">跳转到:</label>
+        <select id="slide-select">
+          <!-- 幻灯片选项将通过JavaScript动态生成 -->
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="slide-container-wrapper">
+    <!-- 加载指示器 -->
+    <div class="loader" id="loader">
+      <div class="pixel-loader"></div>
+    </div>
+
+    <!-- 幻灯片容器 -->
+    <div class="slide-container">
+      <iframe id="slide-frame" class="slide-iframe" src="" frameborder="0" title="幻灯片内容"></iframe>
+    </div>
+
+    <!-- 导航控制 -->
+    <div class="controls-overlay" id="controls">
+      <button class="nav-button" id="first-btn" title="第一张 (Home)">
+        <i class="fas fa-fast-backward"></i>
+      </button>
+      <button class="nav-button" id="prev-btn" title="上一张 (←)">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="slide-info">
+        <span id="slide-number">1 / 15</span>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <button class="nav-button" id="next-btn" title="下一张 (→)">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <button class="nav-button" id="last-btn" title="最后一张 (End)">
+        <i class="fas fa-fast-forward"></i>
+      </button>
+    </div>
+
+    <!-- 主题选择器 -->
+    <div class="theme-selector">
+      <select id="theme-select" class="theme-select" title="选择主题">
+        <option value="8-bit-purple">8-bit 紫色</option>
+        <option value="teal-trust">科技蓝绿</option>
+        <option value="midnight-executive">午夜行政</option>
+        <option value="forest-moss">森林苔藓</option>
+        <option value="coral-energy">珊瑚能量</option>
+        <option value="warm-terracotta">温暖陶土</option>
+      </select>
+    </div>
+
+    <!-- 全屏按钮 -->
+    <div class="fullscreen-button">
+      <button class="pixel-button" id="fullscreen-btn" title="全屏 (F11)">
+        <i class="fas fa-expand"></i> 全屏
+      </button>
+    </div>
+
+    <!-- 快捷键帮助 -->
+    <div class="shortcuts-help">
+      <div class="shortcuts-title">快捷键</div>
+      <div class="shortcut-item">
+        <span>下一张</span>
+        <span class="key">→</span>
+      </div>
+      <div class="shortcut-item">
+        <span>上一张</span>
+        <span class="key">←</span>
+      </div>
+      <div class="shortcut-item">
+        <span>第一张</span>
+        <span class="key">Home</span>
+      </div>
+      <div class="shortcut-item">
+        <span>最后一张</span>
+        <span class="key">End</span>
+      </div>
+      <div class="shortcut-item">
+        <span>全屏切换</span>
+        <span class="key">F11</span>
+      </div>
+      <div class="shortcut-item">
+        <span>自动前进</span>
+        <span class="key">A</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- JavaScript模块 -->
+  <script type="module">
+    import { configManager } from './assets/js/config.js';
+    import { navigationManager } from './assets/js/navigation.js';
+    import { slidesManager } from './assets/js/slides.js';
+
+    // 初始化应用
+    document.addEventListener('DOMContentLoaded', () => {
+      // 应用主题
+      configManager.applyTheme();
+
+      // 设置主题选择器
+      const themeSelect = document.getElementById('theme-select');
+      if (themeSelect) {
+        themeSelect.value = configManager.config.themes.active;
+        themeSelect.addEventListener('change', (e) => {
+          configManager.switchTheme(e.target.value);
+        });
+      }
+
+      // 设置全屏按钮
+      const fullscreenBtn = document.getElementById('fullscreen-btn');
+      if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', () => {
+          navigationManager.toggleFullscreen();
+        });
+      }
+
+      // 设置幻灯片选择器选项
+      const slideSelect = document.getElementById('slide-select');
+      if (slideSelect) {
+        const slidesData = configManager.getSlidesData();
+        slideSelect.innerHTML = '';
+
+        slidesData.forEach((slide, index) => {
+          const option = document.createElement('option');
+          option.value = index;
+          option.textContent = `${index + 1}. ${slide.title}`;
+          slideSelect.appendChild(option);
+        });
+      }
+
+      // 隐藏加载指示器
+      const loader = document.getElementById('loader');
+      if (loader) {
+        setTimeout(() => {
+          loader.style.opacity = '0';
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 300);
+        }, 1000);
+      }
+
+      // 监听幻灯片变化
+      document.addEventListener('slidechange', (event) => {
+        console.log('Slide changed to:', event.detail);
+      });
+
+      // 监听全屏变化
+      document.addEventListener('fullscreenchange', (event) => {
+        console.log('Fullscreen changed:', event.detail);
+      });
+
+      console.log('HTML Slides Show initialized successfully');
+    });
+
+    // 全局导出（用于调试）
+    window.configManager = configManager;
+    window.navigationManager = navigationManager;
+    window.slidesManager = slidesManager;
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+{
+  "name": "html-slides-show",
+  "version": "1.0.0",
+  "description": "HTML幻灯片展示工具，支持8-bit像素风格和Word文档内容转换",
+  "author": "Rex <rex@example.com>",
+  "license": "MIT",
+  "keywords": [
+    "slides",
+    "presentation",
+    "html",
+    "8-bit",
+    "pixel",
+    "word",
+    "docx"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/html-slides-show"
+  },
+  "files": [
+    "index.html",
+    "slides/",
+    "assets/",
+    "themes/",
+    "docs/",
+    "scripts/",
+    "skill/"
+  ],
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "test": "python test_slides.py",
+    "generate": "python generate_remaining_slides.py",
+    "extract": "python scripts/extract_docx.py"
+  },
+  "dependencies": {
+    "python-docx": "^1.1.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.8.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "claude": {
+    "skillType": "tool",
+    "category": "presentation",
+    "tags": ["slides", "html", "presentation", "8-bit"],
+    "compatibility": ["claude-code", "claude-desktop"],
+    "permissions": ["read", "write", "execute"],
+    "triggers": [
+      "create slides",
+      "html presentation",
+      "8-bit slides",
+      "word to slides"
+    ],
+    "examples": [
+      "Create an 8-bit slideshow from my Word document",
+      "Generate HTML slides with 16:9 aspect ratio",
+      "Make a pixel-style presentation about AI evolution"
+    ]
+  },
+  "config": {
+    "defaultTheme": "teal-trust",
+    "slideCount": 15,
+    "aspectRatio": "16:9",
+    "autoAdvance": false
+  }
+}
