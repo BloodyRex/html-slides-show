@@ -13,6 +13,11 @@
       display: flex;
       flex-direction: column;
     }
+    /* 确保列可以滚动 */
+    .two-column-layout .column {
+      min-height: 0;
+      overflow-y: auto;
+    }
   </style>
 </head>
 <body>

@@ -371,7 +371,7 @@ body {
 }
 
 /* 统一背景图：使用第一张幻灯片的抽象线条与渐变背景 */
-.slide-page-bg {
+.slide-page.slide-page-bg {
   background-image:
     /* 抽象线条背景 */
     linear-gradient(45deg, rgba(var(--color-light-rgb), 0.1) 25%, transparent 25%, transparent 50%, rgba(var(--color-light-rgb), 0.1) 50%, rgba(var(--color-light-rgb), 0.1) 75%, transparent 75%, transparent),
