@@ -31,10 +31,16 @@ python -m http.server 8000
 # 访问 http://localhost:8000
 ```
 
-### 方法3：GitHub Pages
-1. 将项目推送到GitHub仓库
-2. 在仓库设置中启用GitHub Pages
-3. 访问生成的URL
+### 方法3：GitHub Pages（推荐用于在线演示）
+1. **创建GitHub仓库**：将项目推送到GitHub仓库
+2. **启用GitHub Pages**：在仓库设置中启用GitHub Pages
+   - Branch: `master`
+   - Folder: `/ (root)`
+3. **访问在线演示**：访问生成的URL
+   - 格式：`https://YOUR_USERNAME.github.io/html-slides-show`
+   - 部署时间：约1-2分钟
+
+**详细部署指南**：请参考 [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) 获取完整的发布步骤。
 
 ## 🎮 使用指南
 
