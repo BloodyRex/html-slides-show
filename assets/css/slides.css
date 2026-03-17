@@ -833,3 +833,148 @@
 .max-w-md { max-width: 480px !important; }
 .max-w-lg { max-width: 640px !important; }
 .max-w-xl { max-width: 800px !important; }
+
+/* 图片样式 */
+.slide-image {
+  max-width: 100%;
+  height: auto;
+  border: var(--border-sharp);
+  background: white;
+  object-fit: contain;
+}
+
+.image-container {
+  display: inline-block;
+  border: var(--border-sharp);
+  background: white;
+  padding: calc(var(--pixel-size) * 2);
+  margin: var(--spacing-md) 0;
+}
+
+.image-caption {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  color: var(--color-muted);
+}
+
+/* Lightbox/Modal 样式 */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  border: var(--border-sharp);
+  background: white;
+  padding: calc(var(--pixel-size) * 3);
+  box-shadow: var(--shadow-pixel-large);
+  animation: lightbox-appear 0.3s ease-out;
+}
+
+@keyframes lightbox-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-caption {
+  font-family: var(--font-pixel);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: var(--spacing-md);
+  color: var(--color-dark);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: calc(var(--pixel-size) * -1);
+  right: calc(var(--pixel-size) * -1);
+  width: 40px;
+  height: 40px;
+  background: var(--color-accent);
+  border: var(--border-sharp);
+  color: white;
+  font-family: var(--font-pixel);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.lightbox-close:hover {
+  background: var(--color-primary);
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: var(--color-primary);
+  border: var(--border-sharp);
+  color: white;
+  font-family: var(--font-pixel);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+}
+
+.lightbox-nav:hover {
+  opacity: 1;
+  background: var(--color-accent);
+}
+
+.lightbox-nav.prev {
+  left: calc(var(--pixel-size) * -2);
+}
+
+.lightbox-nav.next {
+  right: calc(var(--pixel-size) * -2);
+}
+
+.zoomable-image {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.zoomable-image:hover {
+  transform: scale(1.02);
+}

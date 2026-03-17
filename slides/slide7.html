@@ -3,95 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第三阶段：多模态扩展 - 幻灯片7</title>
+  <title>视觉参考图集 - 幻灯片7</title>
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* 修改文字框颜色，提高文字清晰度 */
-    .colorful-text-box.accent {
-      color: white;
-      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    /* 三栏布局 */
+    .three-column-layout {
+      display: flex;
+      gap: calc(var(--pixel-size) * 4);
+      height: 100%;
     }
-    /* 确保列内容可以完全滚动显示 */
-    .two-column-layout .column {
+    .three-column-layout .column {
+      flex: 1;
       min-height: 0;
-      overflow-y: auto;
       display: flex;
       flex-direction: column;
     }
-    .column > * {
-      flex-shrink: 0;
+    /* 图片容器 */
+    .image-card {
+      border: var(--border-sharp);
+      background: white;
+      padding: calc(var(--pixel-size) * 2);
+      cursor: pointer;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
-    .column > :last-child {
-      margin-top: auto;
+    .image-card img {
+      width: 100%;
+      height: auto;
+      flex: 1;
+      object-fit: contain;
     }
-    .pixel-card,
-    .colorful-text-box,
-    .pixel-card-grid {
-      overflow-y: auto;
-      min-height: 0;
-    }
-    /* 提高文字框对比度 */
-    .column .pixel-card:not(.bg-error) {
-      background: var(--gradient-dark);
-      color: var(--color-light);
-      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
-    }
-    .column .pixel-card:not(.bg-error) strong {
-      color: var(--color-accent);
+    .image-card .caption {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.8rem;
+      margin-top: calc(var(--pixel-size) * 2);
+      text-align: center;
+      color: var(--color-dark);
     }
   </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
     <header class="slide-header">
-      <h1 class="slide-title">第三阶段：多模态</h1>
-      <p class="slide-subtitle">BEYOND TEXT: VISUAL REFERENCE</p>
+      <h1 class="slide-title">视觉参考图集</h1>
+      <p class="slide-subtitle">VISUAL REFERENCE GALLERY</p>
     </header>
 
     <main class="slide-content">
-      <div class="two-column-layout">
+      <div class="three-column-layout">
+        <!-- 图片3 -->
         <div class="column">
-          <h2 class="column-title">痛点与冲突</h2>
-          <div class="pixel-card bg-error color-white">
-            <p><strong>视频制作的高门槛：</strong></p>
-            <ul class="pixel-list mt-2">
-              <li class="pixel-list-item">专业工具（Runway、Pika）月费高昂</li>
-              <li class="pixel-list-item">本地部署需要高端GPU，投入巨大</li>
-              <li class="pixel-list-item">学习成本高，团队协作困难</li>
-              <li class="pixel-list-item">产出周期长，无法快速验证创意</li>
-            </ul>
+          <h2 class="column-title">场景草图示例</h2>
+          <div class="image-card">
+            <img src="../assets/images/3.png" alt="场景草图示例" class="slide-image zoomable-image">
+            <p class="caption">点击放大查看细节</p>
           </div>
-          <div class="colorful-text-box accent mt-4">
-            <h3 class="font-pixel">核心洞察</h3>
-            <p>我们不需要电影级大片，只需要<strong>"够用的视觉参考"</strong>来对齐团队理解，降低沟通成本。</p>
-          </div>
-          <div class="pixel-card mt-4">
-            <p><strong>传统流程：</strong> 文字描述 → 团队理解差异 → 反复修改 → 高成本试错</p>
-            <p class="mt-2"><strong>目标流程：</strong> 文字描述 → 快速可视化 → 共识对齐 → 高效执行</p>
+          <div class="pixel-card mt-3">
+            <p><strong>用途：</strong> 快速对齐团队对场景布局的理解</p>
           </div>
         </div>
 
+        <!-- 图片4 -->
         <div class="column">
-          <h2 class="column-title">解决方案：免费组合拳</h2>
-          <div class="pixel-card-grid grid-1-col">
-            <div class="pixel-card-item text-left p-md">
-              <div class="card-title color-success">豆包 / Grok</div>
-              <p class="card-description">快速生成场景草图与氛围图，实时调整，零成本迭代。</p>
-            </div>
+          <h2 class="column-title">氛围图示例</h2>
+          <div class="image-card">
+            <img src="../assets/images/4.png" alt="氛围图示例" class="slide-image zoomable-image">
+            <p class="caption">点击放大查看细节</p>
           </div>
-          <div class="highlight-box mt-auto">
-             从"文字描述"到"一眼看穿"
+          <div class="pixel-card mt-3">
+            <p><strong>用途：</strong> 统一视觉风格和情感基调</p>
+          </div>
+        </div>
+
+        <!-- 图片5 -->
+        <div class="column">
+          <h2 class="column-title">角色设定示例</h2>
+          <div class="image-card">
+            <img src="../assets/images/5.png" alt="角色设定示例" class="slide-image zoomable-image">
+            <p class="caption">点击放大查看细节</p>
+          </div>
+          <div class="pixel-card mt-3">
+            <p><strong>用途：</strong> 明确角色外貌特征和性格表现</p>
           </div>
         </div>
       </div>
     </main>
 
     <footer class="slide-footer">
-      <div class="slide-number">7 / 15</div>
-      <div class="slide-progress"><div class="slide-progress-bar pct-46-6"></div></div>
-      <div class="slide-title">第三阶段：多模态扩展</div>
+      <div class="slide-number">7 / 16</div>
+      <div class="slide-progress"><div class="slide-progress-bar pct-43-7"></div></div>
+      <div class="slide-title">视觉参考图集</div>
     </footer>
   </div>
 </body>

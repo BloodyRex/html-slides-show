@@ -3,75 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第四阶段：创造智能技能 - 幻灯片8</title>
+  <title>第三阶段：多模态扩展 - 幻灯片7</title>
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* 确保侧边栏布局中的主内容区域可以滚动 */
-    .sidebar-layout .main-content {
+    /* 修改文字框颜色，提高文字清晰度 */
+    .colorful-text-box.accent {
+      color: white;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    }
+    /* 确保列内容可以完全滚动显示 */
+    .two-column-layout .column {
+      min-height: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .column > * {
+      flex-shrink: 0;
+    }
+    .column > :last-child {
+      margin-top: auto;
+    }
+    .pixel-card,
+    .colorful-text-box,
+    .pixel-card-grid {
       overflow-y: auto;
       min-height: 0;
+    }
+    /* 提高文字框对比度 */
+    .column .pixel-card:not(.bg-error) {
+      background: var(--gradient-dark);
+      color: var(--color-light);
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    }
+    .column .pixel-card:not(.bg-error) strong {
+      color: var(--color-accent);
     }
   </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
     <header class="slide-header">
-      <h1 class="slide-title">第四阶段：智能技能</h1>
-      <p class="slide-subtitle">FROM WORKFLOW TO SMART SKILLS</p>
+      <h1 class="slide-title">第三阶段：多模态</h1>
+      <p class="slide-subtitle">BEYOND TEXT: VISUAL REFERENCE</p>
     </header>
 
     <main class="slide-content">
-      <div class="sidebar-layout">
-        <div class="main-content">
-          <section class="mb-4">
-            <h2 class="content-title">Claude 的编程超能力</h2>
-            <div class="pixel-card">
-              <p>Claude 写代码的能力极强，不仅是代码生成，更是<strong>逻辑构建</strong>。即使是非技术背景的小白，也能通过自然语言描述实现复杂功能。</p>
-            </div>
-          </section>
-
-          <section>
-            <h2 class="content-title">核心利器：Anti Gravity</h2>
-            <div class="pixel-card bg-secondary color-white">
-              <p>谷歌开源 AI 工具，通过 Claude 编写代码，再由反重力环境<strong>自动执行</strong>。这不再是单纯的对话，而是真正的<strong>自动化操作</strong>。</p>
-            </div>
-          </section>
-
-          <section class="mt-4">
-            <h2 class="content-title">关键优势</h2>
-            <div class="pixel-card-grid grid-1-col">
-              <div class="pixel-card-item">
-                <div class="card-title">低门槛开发</div>
-                <p class="card-description">无需编程经验，用自然语言描述即可创建复杂功能</p>
-              </div>
-              <div class="pixel-card-item">
-                <div class="card-title">快速迭代</div>
-                <p class="card-description">即时反馈，立即测试，快速优化工作流程</p>
-              </div>
-            </div>
-          </section>
+      <div class="two-column-layout">
+        <div class="column">
+          <h2 class="column-title">痛点与冲突</h2>
+          <div class="pixel-card bg-error color-white">
+            <p><strong>视频制作的高门槛：</strong></p>
+            <ul class="pixel-list mt-2">
+              <li class="pixel-list-item">专业工具（Runway、Pika）月费高昂</li>
+              <li class="pixel-list-item">本地部署需要高端GPU，投入巨大</li>
+              <li class="pixel-list-item">学习成本高，团队协作困难</li>
+              <li class="pixel-list-item">产出周期长，无法快速验证创意</li>
+            </ul>
+          </div>
+          <div class="colorful-text-box accent mt-4">
+            <h3 class="font-pixel">核心洞察</h3>
+            <p>我们不需要电影级大片，只需要<strong>"够用的视觉参考"</strong>来对齐团队理解，降低沟通成本。</p>
+          </div>
+          <div class="pixel-card mt-4">
+            <p><strong>传统流程：</strong> 文字描述 → 团队理解差异 → 反复修改 → 高成本试错</p>
+            <p class="mt-2"><strong>目标流程：</strong> 文字描述 → 快速可视化 → 共识对齐 → 高效执行</p>
+          </div>
         </div>
 
-        <aside class="sidebar flex-center flex-column">
-          <div class="font-pixel mb-4 font-1-2 text-center color-white">ARCHITECTURE</div>
-          <div class="flex-center flex-column gap-md">
-            <div class="pixel-card-item w-full bg-white color-dark">Claude</div>
-            <div class="font-pixel color-white">+</div>
-            <div class="pixel-card-item w-full bg-accent color-dark">Anti Gravity</div>
+        <div class="column">
+          <h2 class="column-title">解决方案：免费组合拳</h2>
+          <div class="pixel-card-grid grid-1-col">
+            <div class="pixel-card-item text-left p-md">
+              <div class="card-title color-success">豆包 / Grok</div>
+              <p class="card-description">快速生成场景草图与氛围图，实时调整，零成本迭代。</p>
+            </div>
           </div>
-          <div class="colorful-text-box secondary mt-4">
-            <p class="font-0-8"><strong>组合威力：</strong> 自然语言描述 → 代码生成 → 自动执行 → 结果输出</p>
+
+          <!-- 添加图片6 -->
+          <div class="mt-3 image-container" style="border: var(--border-sharp); padding: calc(var(--pixel-size) * 2); background: white; cursor: pointer;">
+            <img src="../assets/images/6.png" alt="多模态扩展示意图" class="slide-image zoomable-image" style="width: 100%; height: auto;">
+            <p class="image-caption font-pixel font-0-8 mt-2">点击图片查看大图</p>
           </div>
-        </aside>
+
+          <div class="highlight-box mt-auto">
+             从"文字描述"到"一眼看穿"
+          </div>
+        </div>
       </div>
     </main>
 
     <footer class="slide-footer">
-      <div class="slide-number">8 / 15</div>
-      <div class="slide-progress"><div class="slide-progress-bar pct-53-3"></div></div>
-      <div class="slide-title">第四阶段：创造智能技能</div>
+      <div class="slide-number">8 / 16</div>
+      <div class="slide-progress"><div class="slide-progress-bar pct-50"></div></div>
+      <div class="slide-title">第三阶段：多模态扩展</div>
     </footer>
   </div>
 </body>

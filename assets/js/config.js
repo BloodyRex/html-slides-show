@@ -5,7 +5,7 @@
 const defaultConfig = {
   // 幻灯片设置
   slides: {
-    total: 15,
+    total: 16,
     aspectRatio: '16:9',
     autoAdvance: false,
     autoAdvanceDelay: 30000, // 30秒
@@ -167,15 +167,16 @@ const slidesData = [
   { id: 4, file: 'slide4.html', title: '第一阶段：起步痛点', duration: 50 },
   { id: 5, file: 'slide5.html', title: '第一阶段：基础进阶', duration: 55 },
   { id: 6, file: 'slide6.html', title: '第二阶段：工作流构建', duration: 60 },
-  { id: 7, file: 'slide7.html', title: '第三阶段：多模态扩展', duration: 50 },
-  { id: 8, file: 'slide8.html', title: '第四阶段：创造智能技能', duration: 55 },
-  { id: 9, file: 'slide9.html', title: '专属"剧本创作Skill"', duration: 50 },
-  { id: 10, file: 'slide10.html', title: '案例1：个人主页', duration: 40 },
-  { id: 11, file: 'slide11.html', title: '案例2：情报推送', duration: 40 },
-  { id: 12, file: 'slide12.html', title: '进化路径回顾', duration: 45 },
-  { id: 13, file: 'slide13.html', title: '下一步行动建议', duration: 40 },
-  { id: 14, file: 'slide14.html', title: '结语：正在替代的人', duration: 35 },
-  { id: 15, file: 'slide15.html', title: 'Q&A / 谢谢聆听', duration: 30 }
+  { id: 7, file: 'slide7.html', title: '视觉参考图集', duration: 45 },
+  { id: 8, file: 'slide8.html', title: '第三阶段：多模态扩展', duration: 50 },
+  { id: 9, file: 'slide9.html', title: '第四阶段：创造智能技能', duration: 55 },
+  { id: 10, file: 'slide10.html', title: '专属"剧本创作Skill"', duration: 50 },
+  { id: 11, file: 'slide11.html', title: '案例1：个人主页', duration: 40 },
+  { id: 12, file: 'slide12.html', title: '案例2：情报推送', duration: 40 },
+  { id: 13, file: 'slide13.html', title: '进化路径回顾', duration: 45 },
+  { id: 14, file: 'slide14.html', title: '下一步行动建议', duration: 40 },
+  { id: 15, file: 'slide15.html', title: '结语：正在替代的人', duration: 35 },
+  { id: 16, file: 'slide16.html', title: 'Q&A / 谢谢聆听', duration: 30 }
 ];
 
 // 配置管理器

@@ -3,73 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>案例1：个人主页 - 幻灯片10</title>
+  <title>Skill使用效果 - 幻灯片9</title>
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* 确保侧边栏布局中的主内容区域可以滚动 */
-    .sidebar-layout .main-content {
-      overflow-y: auto;
+    .two-column-layout .column {
+      display: flex;
+      flex-direction: column;
       min-height: 0;
+      overflow-y: auto;
+    }
+    .column-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
     <header class="slide-header">
-      <h1 class="slide-title">案例1：个人主页</h1>
-      <p class="slide-subtitle">BOOKMARKS TO WEBSITE</p>
+      <h1 class="slide-title">专属"剧本创作Skill"</h1>
+      <p class="slide-subtitle">THE POWER OF CUSTOM SKILLS</p>
     </header>
 
     <main class="slide-content">
-      <div class="sidebar-layout">
-        <div class="main-content">
-          <section class="mb-4">
-            <h2 class="content-title">核心解决方案</h2>
-            <div class="pixel-card">
-              <p>利用<strong>反重力 AI</strong> 设计个人导航主页，全自动生成代码并部署至 GitHub Pages。</p>
-            </div>
-          </section>
-
-          <div class="pixel-card-grid">
-            <div class="pixel-card-item">
-              <div class="card-title">痛点</div>
-              <p class="card-description">设备较多，收藏夹无法实时互通</p>
-            </div>
-            <div class="pixel-card-item">
-              <div class="card-title">结果</div>
-              <p class="card-description">域名即刻访问，彻底告别本地收藏</p>
-            </div>
-          </div>
-
-          <section class="mt-4">
-            <h2 class="content-title">实现步骤</h2>
+      <div class="two-column-layout">
+        <div class="column">
+          <div class="column-content">
+            <h2 class="column-title">核心步骤</h2>
             <ul class="pixel-list">
-              <li class="pixel-list-item"><strong>需求描述：</strong> 向Claude描述想要的书签管理网站功能</li>
-              <li class="pixel-list-item"><strong>代码生成：</strong> Claude自动生成HTML/CSS/JavaScript代码</li>
-              <li class="pixel-list-item"><strong>自动部署：</strong> 反重力环境自动推送到GitHub Pages</li>
-              <li class="pixel-list-item"><strong>持续维护：</strong> 可通过自然语言随时更新网站内容</li>
+              <li class="pixel-list-item"><strong>整理：</strong> 往期剧本打包成"记忆库"</li>
+              <li class="pixel-list-item"><strong>编写：</strong> 用 Claude 拆解创作流程指南</li>
+              <li class="pixel-list-item"><strong>封装：</strong> 喂给反重力 AI 建立自动调用</li>
             </ul>
-          </section>
-
-          <div class="colorful-text-box accent mt-4">
-            <h3 class="font-pixel">核心价值</h3>
-            <p>将零散的收藏夹转化为可随时访问的个性化导航门户，实现"一次创建，处处可用"。</p>
+          </div>
+          <div class="colorful-text-box secondary mt-auto">
+            <p class="font-0-9"><strong>关键：</strong> 将隐式知识转化为显式、可复用的技能包</p>
           </div>
         </div>
 
-        <aside class="sidebar flex-center flex-column text-center">
-          <div class="font-pixel mb-3 font-3">🌐</div>
-          <p class="font-pixel font-0-7">PERSONAL PORTAL</p>
-        </aside>
+        <div class="column">
+          <div class="column-content">
+            <h2 class="column-title">惊艳效果</h2>
+            <div class="pixel-card-grid grid-1-col gap-sm">
+              <div class="pixel-card-item text-left bg-secondary">
+                <p><strong>输入：</strong> "我想写个关于分享的故事"</p>
+                <p class="mt-2"><strong>输出：</strong> 自动检索库 -> 极高完成度大纲</p>
+              </div>
+              <div class="pixel-card-item text-left bg-accent">
+                <p><strong>结论：</strong> 质量极其稳定，几乎不需要大改。</p>
+              </div>
+            </div>
+          </div>
+          <div class="colorful-text-box primary mt-auto">
+            <p class="font-0-9"><strong>效率提升：</strong> 创作时间从几天缩短到几小时，质量一致性大幅提高</p>
+          </div>
+        </div>
       </div>
     </main>
 
     <footer class="slide-footer">
-      <div class="slide-number">10 / 15</div>
-      <div class="slide-progress"><div class="slide-progress-bar pct-66-6"></div></div>
-      <div class="slide-title">案例1：个人主页</div>
+      <div class="slide-number">10 / 16</div>
+      <div class="slide-progress"><div class="slide-progress-bar pct-62-5"></div></div>
+      <div class="slide-title">专属"剧本创作Skill"</div>
     </footer>
   </div>
 </body>

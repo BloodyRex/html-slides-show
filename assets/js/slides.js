@@ -154,6 +154,21 @@ class SlidesManager {
         event.preventDefault();
         window.open(event.target.href, '_blank');
       }
+
+      // 检查是否点击了可缩放图片
+      const zoomableImg = event.target.closest('.zoomable-image');
+      if (zoomableImg) {
+        event.preventDefault();
+        this.openLightbox(iframeDoc, zoomableImg);
+      }
+
+      // 检查是否点击了lightbox关闭按钮或背景
+      const lightboxClose = event.target.closest('.lightbox-close');
+      const lightboxOverlay = event.target.closest('.lightbox-overlay');
+      if (lightboxClose || (lightboxOverlay && event.target === lightboxOverlay)) {
+        event.preventDefault();
+        this.closeLightbox(iframeDoc);
+      }
     });
 
     // 添加键盘事件传递
@@ -161,7 +176,15 @@ class SlidesManager {
       // 将事件冒泡到父窗口
       const newEvent = new KeyboardEvent('keydown', event);
       document.dispatchEvent(newEvent);
+
+      // ESC键关闭lightbox
+      if (event.key === 'Escape') {
+        this.closeLightbox(iframeDoc);
+      }
     });
+
+    // 初始化lightbox DOM
+    this.setupLightboxDOM(iframeDoc);
   }
 
   // 转发键盘事件
@@ -317,6 +340,68 @@ class SlidesManager {
     }
 
     return await this.preloadSlide(index);
+  }
+
+  // Lightbox 功能
+  setupLightboxDOM(iframeDoc) {
+    // 如果lightbox已存在，先移除
+    const existingLightbox = iframeDoc.getElementById('lightbox-overlay');
+    if (existingLightbox) {
+      existingLightbox.remove();
+    }
+
+    // 创建lightbox DOM结构
+    const lightboxHTML = `
+      <div id="lightbox-overlay" class="lightbox-overlay">
+        <div class="lightbox-content">
+          <button class="lightbox-close" aria-label="关闭">✕</button>
+          <img class="lightbox-image" src="" alt="">
+          <p class="lightbox-caption"></p>
+        </div>
+      </div>
+    `;
+
+    // 添加到iframe文档
+    const container = iframeDoc.createElement('div');
+    container.innerHTML = lightboxHTML;
+    iframeDoc.body.appendChild(container.firstElementChild);
+  }
+
+  openLightbox(iframeDoc, imageElement) {
+    const lightboxOverlay = iframeDoc.getElementById('lightbox-overlay');
+    if (!lightboxOverlay) return;
+
+    const lightboxImage = lightboxOverlay.querySelector('.lightbox-image');
+    const lightboxCaption = lightboxOverlay.querySelector('.lightbox-caption');
+
+    if (lightboxImage) {
+      // 使用原始图片的src
+      lightboxImage.src = imageElement.src;
+      lightboxImage.alt = imageElement.alt || '放大图片';
+    }
+
+    if (lightboxCaption) {
+      // 尝试获取图片标题或使用默认文字
+      const caption = imageElement.closest('.image-container')?.querySelector('.image-caption')?.textContent || '点击任意位置关闭';
+      lightboxCaption.textContent = caption;
+    }
+
+    // 显示lightbox
+    lightboxOverlay.classList.add('active');
+
+    // 防止body滚动
+    iframeDoc.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox(iframeDoc) {
+    const lightboxOverlay = iframeDoc.getElementById('lightbox-overlay');
+    if (!lightboxOverlay) return;
+
+    // 隐藏lightbox
+    lightboxOverlay.classList.remove('active');
+
+    // 恢复body滚动
+    iframeDoc.body.style.overflow = '';
   }
 
   // 清理资源
