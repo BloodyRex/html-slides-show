@@ -54,6 +54,9 @@
       <div class="two-column-layout">
         <div class="column">
           <h2 class="column-title">痛点与冲突</h2>
+          <div class="pixel-card bg-info color-white mb-4">
+            <p><strong>新需求的诞生：</strong>剧本写好了，到了视频制作环节，需要"视觉参考"来对齐团队理解，降低沟通成本。</p>
+          </div>
           <div class="pixel-card bg-error color-white">
             <p><strong>视频制作的高门槛：</strong></p>
             <ul class="pixel-list mt-2">
@@ -75,6 +78,9 @@
 
         <div class="column">
           <h2 class="column-title">解决方案：免费组合拳</h2>
+          <div class="pixel-card bg-accent color-dark mb-4">
+            <p><strong>核心思路：</strong>快速呈现"概念感"就行，用免费工具组合实现视觉参考生成。</p>
+          </div>
           <div class="pixel-card-grid grid-1-col">
             <div class="pixel-card-item text-left p-md">
               <div class="card-title color-success">豆包 / Grok</div>
@@ -101,5 +107,50 @@
       <div class="slide-title">第三阶段：多模态扩展</div>
     </footer>
   </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-overlay" class="lightbox-overlay">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="关闭">✕</button>
+      <img class="lightbox-image" src="" alt="">
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script>
+    // Lightbox functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightboxOverlay = document.getElementById('lightbox-overlay');
+      const lightboxImage = lightboxOverlay.querySelector('.lightbox-image');
+      const lightboxCaption = lightboxOverlay.querySelector('.lightbox-caption');
+      const lightboxClose = lightboxOverlay.querySelector('.lightbox-close');
+
+      // 点击图片打开lightbox
+      document.addEventListener('click', function(event) {
+        const zoomableImg = event.target.closest('.zoomable-image');
+        if (zoomableImg) {
+          event.preventDefault();
+          lightboxImage.src = zoomableImg.src;
+          lightboxImage.alt = zoomableImg.alt || '放大图片';
+          lightboxCaption.textContent = zoomableImg.alt || '';
+          lightboxOverlay.classList.add('active');
+        }
+
+        // 点击关闭按钮或背景关闭
+        if (event.target === lightboxOverlay || event.target.closest('.lightbox-close')) {
+          event.preventDefault();
+          lightboxOverlay.classList.remove('active');
+        }
+      });
+
+      // ESC键关闭
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          lightboxOverlay.classList.remove('active');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

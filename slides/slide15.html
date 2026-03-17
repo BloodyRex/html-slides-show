@@ -18,7 +18,7 @@
     <main class="slide-content flex-center flex-column">
       <h2 class="font-pixel h1 mb-4 font-3">谢谢聆听</h2>
       <div class="mb-4 flex-center image-container" style="width: 150px; height: 150px;">
-        <img src="../assets/images/1.png" alt="Rex的卡通形象" class="slide-image">
+        <img src="../assets/images/1.png" alt="Rex的卡通形象" class="slide-image zoomable-image">
       </div>
       <p class="font-1-2 opacity-0-8">有任何问题，欢迎随时提问！</p>
       
@@ -39,5 +39,50 @@
       <div class="slide-title">Q&A / 谢谢聆听</div>
     </footer>
   </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-overlay" class="lightbox-overlay">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="关闭">✕</button>
+      <img class="lightbox-image" src="" alt="">
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script>
+    // Lightbox functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightboxOverlay = document.getElementById('lightbox-overlay');
+      const lightboxImage = lightboxOverlay.querySelector('.lightbox-image');
+      const lightboxCaption = lightboxOverlay.querySelector('.lightbox-caption');
+      const lightboxClose = lightboxOverlay.querySelector('.lightbox-close');
+
+      // 点击图片打开lightbox
+      document.addEventListener('click', function(event) {
+        const zoomableImg = event.target.closest('.zoomable-image');
+        if (zoomableImg) {
+          event.preventDefault();
+          lightboxImage.src = zoomableImg.src;
+          lightboxImage.alt = zoomableImg.alt || '放大图片';
+          lightboxCaption.textContent = zoomableImg.alt || '';
+          lightboxOverlay.classList.add('active');
+        }
+
+        // 点击关闭按钮或背景关闭
+        if (event.target === lightboxOverlay || event.target.closest('.lightbox-close')) {
+          event.preventDefault();
+          lightboxOverlay.classList.remove('active');
+        }
+      });
+
+      // ESC键关闭
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          lightboxOverlay.classList.remove('active');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
