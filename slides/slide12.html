@@ -3,69 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>总结：进化路径回顾 - 幻灯片12</title>
+  <title>展望未来：AI 与人的边界 - 幻灯片12</title>
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    .column-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    /* 确保列可以滚动 */
     .two-column-layout .column {
       min-height: 0;
       overflow-y: auto;
+      padding: 10px;
+    }
+    .pixel-card.bg-secondary {
+      background: var(--color-dark) !important;
+      color: white !important;
+      border: 2px solid white;
+    }
+    .pixel-card.bg-accent {
+      background: var(--color-accent) !important;
+      color: var(--color-dark) !important;
+      border: 2px solid var(--color-dark);
+    }
+    .pixel-card .pixel-list-item {
+      background: transparent !important;
+      color: inherit !important;
+      border-color: rgba(255,255,255,0.2) !important;
+    }
+    .pixel-card {
+      padding: var(--spacing-md) !important;
+      line-height: 1.4;
+      min-height: 320px !important;
+    }
+    .pixel-list-item {
+      font-size: 1.1rem !important;
+      margin-bottom: 8px;
+    }
+    .core-concept-text {
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
     <header class="slide-header">
-      <h1 class="slide-title">进化路径回顾</h1>
-      <p class="slide-subtitle">RECAP & RECOMMENDATIONS</p>
+      <h1 class="slide-title">展望未来：AI 与人的边界</h1>
+      <p class="slide-subtitle">AI & HUMAN BOUNDARIES</p>
     </header>
 
     <main class="slide-content">
       <div class="two-column-layout">
         <div class="column">
-          <div class="column-content">
-            <h2 class="column-title">核心进化回顾</h2>
-            <ul class="pixel-list">
-              <li class="pixel-list-item">提问技巧（基础）</li>
-              <li class="pixel-list-item">流程封装（进阶）</li>
-              <li class="pixel-list-item">多模态赋能（扩展）</li>
-              <li class="pixel-list-item">智能技能开发（跃迁）</li>
+          <h2 class="column-title">AI 做什么？</h2>
+          <div class="pixel-card bg-secondary">
+            <ul class="pixel-list mt-2">
+              <li class="pixel-list-item"><strong>海量阅读：</strong> 瞬间消化上百万字资料</li>
+              <li class="pixel-list-item"><strong>逻辑推演：</strong> 严格执行复杂的判断流程</li>
+              <li class="pixel-list-item"><strong>工业生产：</strong> 24小时不间断的稳定产出</li>
+              <li class="pixel-list-item"><strong>辅助润色：</strong> 自动修正语法与排版错误</li>
             </ul>
-          </div>
-          <div class="colorful-text-box primary mt-auto">
-            <h3 class="font-pixel">进化逻辑</h3>
-            <p>从"使用工具"到"创造工具"，从"被动适应"到"主动构建"。</p>
           </div>
         </div>
 
         <div class="column">
-          <div class="column-content">
-            <h2 class="column-title">可复制的三步行动</h2>
-            <div class="section-card">
-              <p><strong>1. 梳理：</strong> 找出你重复性最高的事</p>
-              <p class="mt-2"><strong>2. 封装：</strong> 利用工具/代码包成"技能"</p>
-              <p class="mt-2"><strong>3. 积累：</strong> 持续构建你的"数字资产"</p>
-            </div>
-          </div>
-          <div class="colorful-text-box secondary mt-auto">
-            <h3 class="font-pixel">核心原则</h3>
-            <p>AI不会替代你，但会用AI并且会造工具的人，正在替代只会用AI的人。</p>
+          <h2 class="column-title">人做什么？</h2>
+          <div class="pixel-card bg-accent">
+            <ul class="pixel-list mt-2">
+              <li class="pixel-list-item"><strong>审美定义：</strong> 决定什么是"美"</li>
+              <li class="pixel-list-item"><strong>情感联结：</strong> 产生跨越屏幕的真诚共鸣</li>
+              <li class="pixel-list-item"><strong>价值判断：</strong> 定义创作的真实动机</li>
+              <li class="pixel-list-item"><strong>终极把关：</strong> 对产出质量进行最后的审核</li>
+            </ul>
           </div>
         </div>
       </div>
 
+      <div class="colorful-text-box accent mt-4">
+        <p class="font-pixel core-concept-text"><strong>核心观点：</strong> 技术解决效率，人解决灵魂。AI 不会取代创作者，但会取代不会用 AI 的人。</p>
+      </div>
+    </main>
 
     <footer class="slide-footer">
       <div class="slide-number">12 / 16</div>
       <div class="slide-progress"><div class="slide-progress-bar pct-75"></div></div>
-      <div class="slide-title">进化路径回顾</div>
+      <div class="slide-title">展望未来：AI 与人的边界</div>
     </footer>
   </div>
 </body>

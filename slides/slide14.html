@@ -3,32 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>金句收尾 - 幻灯片14</title>
+  <title>立即行动 - 幻灯片14</title>
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .action-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      gap: var(--spacing-sm);
+    }
+    .action-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-sm);
+      flex-shrink: 0;
+    }
+    .action-card {
+      background: var(--gradient-surface);
+      border: var(--border-sharp);
+      padding: var(--spacing-md);
+      border-radius: calc(var(--pixel-size) * 2);
+      text-align: center;
+      min-height: 180px;
+    }
+    .action-number {
+      font-family: var(--font-pixel);
+      font-size: 1.5rem;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+    }
+    .tools-section {
+      background: var(--color-dark);
+      border: var(--border-sharp);
+      padding: var(--spacing-md);
+      border-radius: calc(var(--pixel-size) * 2);
+      color: white;
+      text-align: center;
+    }
+    .tool-list {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-lg);
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .tool-item {
+      font-family: var(--font-pixel);
+      font-size: 0.8rem;
+      color: var(--color-accent);
+    }
+    .colorful-text-box.accent {
+      min-height: 120px;
+      padding: var(--spacing-md);
+    }
+    .action-summary {
+      font-size: 0.95rem;
+    }
+    .reminder-text {
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
-    <main class="slide-content flex-center">
-      <div class="text-center max-w-800">
-        <div class="highlight-box p-4">
-          <h1 class="font-pixel h2 color-dark text-shadow-none">
-            AI 不会替代你，<br>
-            但会用 AI 并会造工具的人，<br>
-            <span class="color-accent">正在替代只会用 AI 的人。</span>
-          </h1>
+    <header class="slide-header">
+      <h1 class="slide-title">立即行动指南</h1>
+      <p class="slide-subtitle">PRACTICAL NEXT STEPS</p>
+    </header>
+
+    <main class="slide-content">
+      <div class="action-container">
+        <div class="action-cards">
+          <div class="action-card">
+            <div class="action-number">01</div>
+            <h3 class="font-pixel">梳理流程</h3>
+            <p class="mt-2 action-summary">记录下高频、机械式的日常任务。</p>
+          </div>
+          <div class="action-card">
+            <div class="action-number">02</div>
+            <h3 class="font-pixel">工具封装</h3>
+            <p class="mt-2 action-summary">用 Dify 或 GPTs 将流程固化为具体“技能”。</p>
+          </div>
+          <div class="action-card">
+            <div class="action-number">03</div>
+            <h3 class="font-pixel">数字积累</h3>
+            <p class="mt-2 action-summary">沉淀每一次自动化的成果作为你的数字资产。</p>
+          </div>
         </div>
-        <p class="mt-4 italic font-1-2 opacity-0-8">
-          "把你手头最烦琐的那件小事，变成 AI 的一个固定 '技能'。"
-        </p>
+
+        <div class="tools-section">
+          <h3 class="font-pixel">推荐：Dify / Claude / Antigravity</h3>
+          <div class="tool-list">
+            <div class="tool-item">Dify.ai</div>
+            <div class="tool-item">Claude 3.5</div>
+            <div class="tool-item">Antigravity</div>
+          </div>
+        </div>
+
+        <div class="colorful-text-box accent">
+          <h3 class="font-pixel">关键提醒</h3>
+          <p class="reminder-text">从最小的一个流程开始。不要追求大而全，先实现小而美的提效。</p>
+        </div>
       </div>
     </main>
 
     <footer class="slide-footer">
       <div class="slide-number">14 / 16</div>
       <div class="slide-progress"><div class="slide-progress-bar pct-87-5"></div></div>
-      <div class="slide-title">结语：正在替代的人</div>
+      <div class="slide-title">立即行动指南</div>
     </footer>
   </div>
 </body>

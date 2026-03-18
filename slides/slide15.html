@@ -3,86 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q&A - 幻灯片15</title>
+  <title>总结语 - 幻灯片15</title>
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .gold-box {
+      box-shadow: 6px 6px 0 black;
+      line-height: 1.6;
+    }
+    .highlight-span {
+      background: white;
+      padding: 4px 8px;
+    }
+    .quote-text {
+      text-shadow: 2px 2px 0 black;
+    }
+  </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
-    <header class="slide-header">
-      <h1 class="slide-title">Q&A</h1>
-      <p class="slide-subtitle">THANK YOU FOR LISTENING</p>
-    </header>
-
-    <main class="slide-content flex-center flex-column">
-      <h2 class="font-pixel h1 mb-4 font-3">谢谢聆听</h2>
-      <div class="mb-4 flex-center image-container" style="width: 150px; height: 150px;">
-        <img src="../assets/images/1.png" alt="Rex的卡通形象" class="slide-image zoomable-image">
+    <main class="slide-content flex-center">
+      <div class="text-center max-w-800">
+        <div class="highlight-box p-4 bg-accent color-dark border-sharp gold-box">
+          <h1 class="font-pixel h2 color-dark text-shadow-none">
+            AI 不会替代你，<br>
+            但会用 AI 并会造工具的人，<br>
+            <span class="color-primary highlight-span">正在替代只会用 AI 的人。</span>
+          </h1>
+        </div>
+        <p class="mt-4 italic font-1-2 opacity-0-8 color-white quote-text">
+          "把你手头最烦琐的那件小事，变成 AI 的一个固定 '技能'。"
+        </p>
       </div>
-      <p class="font-1-2 opacity-0-8">有任何问题，欢迎随时提问！</p>
-      
-      <div class="mt-4 p-md border-sharp bg-surface">
-        <p class="font-pixel font-0-8">CONTACT: Rex - rexhr@yahoo.com</p>
-      </div>
-
-      <div class="colorful-text-box accent">
-        <h3 class="font-pixel">重点提示</h3>
-        <p>本页内容采用8-bit像素风格设计，支持键盘导航和全屏展示。</p>
-      </div>
-
     </main>
 
     <footer class="slide-footer">
       <div class="slide-number">15 / 16</div>
-      <div class="slide-progress"><div class="slide-progress-bar pct-93-8"></div></div>
-      <div class="slide-title">Q&A / 谢谢聆听</div>
+      <div class="slide-progress"><div class="slide-progress-bar pct-93-75"></div></div>
+      <div class="slide-title">结语：核心洞察</div>
     </footer>
   </div>
-
-  <!-- Lightbox Modal -->
-  <div id="lightbox-overlay" class="lightbox-overlay">
-    <div class="lightbox-content">
-      <button class="lightbox-close" aria-label="关闭">✕</button>
-      <img class="lightbox-image" src="" alt="">
-      <p class="lightbox-caption"></p>
-    </div>
-  </div>
-
-  <script>
-    // Lightbox functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const lightboxOverlay = document.getElementById('lightbox-overlay');
-      const lightboxImage = lightboxOverlay.querySelector('.lightbox-image');
-      const lightboxCaption = lightboxOverlay.querySelector('.lightbox-caption');
-      const lightboxClose = lightboxOverlay.querySelector('.lightbox-close');
-
-      // 点击图片打开lightbox
-      document.addEventListener('click', function(event) {
-        const zoomableImg = event.target.closest('.zoomable-image');
-        if (zoomableImg) {
-          event.preventDefault();
-          lightboxImage.src = zoomableImg.src;
-          lightboxImage.alt = zoomableImg.alt || '放大图片';
-          lightboxCaption.textContent = zoomableImg.alt || '';
-          lightboxOverlay.classList.add('active');
-        }
-
-        // 点击关闭按钮或背景关闭
-        if (event.target === lightboxOverlay || event.target.closest('.lightbox-close')) {
-          event.preventDefault();
-          lightboxOverlay.classList.remove('active');
-        }
-      });
-
-      // ESC键关闭
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-          lightboxOverlay.classList.remove('active');
-        }
-      });
-    });
-  </script>
-
 </body>
 </html>

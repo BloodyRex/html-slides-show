@@ -3,67 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>案例2：每日新闻推送 - 幻灯片11</title>
+  <title>实战展示：多模态成果 - 幻灯片11</title>
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* 给左边大框中的文字框添加颜色填充 */
-    .section-card {
-      background: var(--gradient-info);
-      color: var(--color-dark);
-      border: var(--border-sharp);
-      padding: var(--spacing-lg);
-      border-radius: calc(var(--pixel-size) * 3);
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+      flex: 1;
+      align-items: center;
     }
-    /* 确保列可以滚动 */
-    .two-column-layout .column {
-      min-height: 0;
-      overflow-y: auto;
+    .image-item {
+      border: var(--border-sharp);
+      background: white;
+      padding: var(--spacing-xs);
+      box-shadow: 6px 6px 0 black;
+      transition: all var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .image-item:hover {
+      transform: scale(1.03);
+      box-shadow: 10px 10px 0 var(--color-accent);
+      border-color: var(--color-accent);
+    }
+    .image-item img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      max-height: 400px;
+    }
+    .image-caption {
+      margin-top: 15px;
+      font-family: var(--font-pixel);
+      font-size: 0.8rem;
+      color: var(--color-dark);
+      text-align: center;
+      background: var(--color-warning);
+      padding: 8px;
+    }
+    .footer-desc {
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
     <header class="slide-header">
-      <h1 class="slide-title">案例2：情报推送</h1>
-      <p class="slide-subtitle">MY PERSONAL NEWS AGENT</p>
+      <h1 class="slide-title">实战展示：多模态成果</h1>
+      <p class="slide-subtitle">VISUAL CASE STUDIES</p>
     </header>
 
     <main class="slide-content">
-      <div class="two-column-layout">
-        <div class="column">
-          <h2 class="column-title">自动化流程</h2>
-          <div class="section-card">
-            <ul class="pixel-list">
-              <li class="pixel-list-item"><strong>抓取：</strong> GitHub Actions 定时运行</li>
-              <li class="pixel-list-item"><strong>处理：</strong> AI 去重、提取核心摘要</li>
-              <li class="pixel-list-item"><strong>投递：</strong> 整理成每日简报发往邮箱</li>
-            </ul>
-          </div>
+      <div class="image-grid">
+        <div class="image-item">
+          <img src="../assets/images/7.png" alt="实战案例1" class="zoomable-image">
+          <div class="image-caption">场景构筑</div>
         </div>
-
-        <div class="column">
-          <h2 class="column-title">核心价值</h2>
-          <div class="pixel-card-grid grid-1-col">
-            <div class="pixel-card-item bg-secondary">
-              <div class="card-title">节省时间</div>
-              <p class="card-description">无需手动刷 App，5 分钟掌握天下要闻</p>
-            </div>
-            <div class="pixel-card-item bg-accent">
-              <div class="card-title">定制内容</div>
-              <p class="card-description">只看我想看的，过滤噪音干扰</p>
-            </div>
-          </div>
+        <div class="image-item">
+          <img src="../assets/images/8.png" alt="实战案例2" class="zoomable-image">
+          <div class="image-caption">氛围对齐</div>
         </div>
+        <div class="image-item">
+          <img src="../assets/images/9.png" alt="实战案例3" class="zoomable-image">
+          <div class="image-caption">视觉风格</div>
+        </div>
+      </div>
+      <div class="colorful-text-box accent mt-4">
+        <p class="footer-desc">这些都是利用 Dify 工作流与多模态模型快速产出的视觉参考资料，极大地缩短了内测沟通周期。</p>
       </div>
     </main>
 
     <footer class="slide-footer">
       <div class="slide-number">11 / 16</div>
-      <div class="slide-progress"><div class="slide-progress-bar pct-68-8"></div></div>
-      <div class="slide-title">案例2：情报推送</div>
+      <div class="slide-progress"><div class="slide-progress-bar pct-68-75"></div></div>
+      <div class="slide-title">实战展示：多模态成果</div>
     </footer>
   </div>
+
+  <div id="lightbox-overlay" class="lightbox-overlay">
+    <div class="lightbox-content">
+      <button class="lightbox-close">✕</button>
+      <img class="lightbox-image" src="" alt="">
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightboxOverlay = document.getElementById('lightbox-overlay');
+      const lightboxImage = lightboxOverlay.querySelector('.lightbox-image');
+      const lightboxCaption = lightboxOverlay.querySelector('.lightbox-caption');
+
+      document.addEventListener('click', function(event) {
+        const zoomableImg = event.target.closest('.zoomable-image');
+        if (zoomableImg) {
+          event.preventDefault();
+          lightboxImage.src = zoomableImg.src;
+          lightboxImage.alt = zoomableImg.alt || '放大图片';
+          lightboxCaption.textContent = zoomableImg.alt || '';
+          lightboxOverlay.classList.add('active');
+        }
+
+        if (event.target === lightboxOverlay || event.target.closest('.lightbox-close')) {
+          event.preventDefault();
+          lightboxOverlay.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

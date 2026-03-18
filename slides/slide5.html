@@ -8,35 +8,38 @@
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* 确保两栏内容可以完全滚动显示 */
     .two-column-layout .column {
       display: flex;
       flex-direction: column;
       min-height: 0;
       overflow-y: auto;
     }
-    .section-card,
-    .pixel-card-grid {
-      flex: 1 1 auto;
-      min-height: 200px;
+    /* 增加滑动显示功能，并确保有明确的高亮感 */
+    .section-card {
+      max-height: 420px;
+      overflow-y: auto !important;
+      /* scrollbar properties are progressively enhanced and handled by -webkit-scrollbar in base.css */
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-accent) var(--color-dark);
+      padding: var(--spacing-md);
+      background: var(--color-dark) !important;
+      border: 2px solid var(--color-accent);
+      color: white !important;
     }
-    /* 优化间距，确保内容完整显示 */
-    .column > * {
-      flex-shrink: 0;
+    .section-card .pixel-list-item {
+      background: transparent !important;
+      color: white !important;
     }
-    .column > :last-child {
-      margin-bottom: auto;
-    }
-    /* 确保列表项有足够空间 */
-    .pixel-list-item {
-      margin-bottom: var(--spacing-sm);
+    /* 容器也需要能展示更多内容 */
+    .main-content {
+      overflow-y: auto;
     }
   </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
     <header class="slide-header">
-      <h1 class="slide-title">第一阶段：基础进阶</h1>
+      <h1 class="slide-title">第一阶段：学会提问（解决方案）</h1>
       <p class="slide-subtitle">SOLUTION: AGENTIC THINKING</p>
     </header>
 
@@ -48,9 +51,12 @@
             <p><strong>提示词质量 = 输出质量</strong></p>
             <p class="mt-2">不再是简单的指令，而是完整的<strong>任务包</strong>：</p>
             <ul class="pixel-list mt-2">
-              <li class="pixel-list-item">角色设定（Role）</li>
-              <li class="pixel-list-item">任务目标（Task）</li>
-              <li class="pixel-list-item">约束条件（Constraint）</li>
+              <li class="pixel-list-item">角色设定（Role）：明确AI的专业身份，如"金牌编剧"</li>
+              <li class="pixel-list-item">任务目标（Task）：具体要完成的效果，如"创作3分钟短剧大纲"</li>
+              <li class="pixel-list-item">约束条件（Constraint）：字数限制、避雷点、特定词汇使用</li>
+              <li class="pixel-list-item">核心流程（Workflow）：指明思考顺序，先想什么再做什么</li>
+              <li class="pixel-list-item">参考案例（Example）：给出历史优秀剧本作为写作蓝本</li>
+              <li class="pixel-list-item">输出格式（Format）：要求以特定的JSON或Markdown格式呈现</li>
             </ul>
           </div>
         </div>
@@ -58,13 +64,13 @@
         <div class="column">
           <h2 class="column-title">标准交代模板</h2>
           <div class="pixel-card-grid grid-1-col">
-            <div class="pixel-card-item text-left">
+            <div class="pixel-card-item text-left bg-secondary color-white">
               <div class="card-title">1. 背景输入</div>
-              <p class="card-description">"这是关于5-8岁儿童的科普剧本..."</p>
+              <p class="card-description">"这是关于5-8岁儿童的科普剧本，目前已完成前三集..."</p>
             </div>
-            <div class="pixel-card-item text-left">
+            <div class="pixel-card-item text-left bg-accent color-dark">
               <div class="card-title">2. 风格对齐</div>
-              <p class="card-description">"参考皮克斯的幽默感和教育意义..."</p>
+              <p class="card-description">"参考皮克斯的幽默感，需要有反转，对白要简练..."</p>
             </div>
           </div>
         </div>
@@ -72,14 +78,14 @@
 
       <div class="colorful-text-box accent mt-4">
         <h3 class="font-pixel">核心要义</h3>
-        <p>把AI当作同事，完整交代背景，才能获得稳定、高质量的输出。</p>
+        <p>把AI当作同事，完整交代背景，才能获得稳定、高质量的输出，减少反复沟通成本。</p>
       </div>
     </main>
 
     <footer class="slide-footer">
       <div class="slide-number">5 / 16</div>
       <div class="slide-progress"><div class="slide-progress-bar pct-31-3"></div></div>
-      <div class="slide-title">第一阶段：基础进阶</div>
+      <div class="slide-title">第一阶段：解决方案</div>
     </footer>
   </div>
 </body>

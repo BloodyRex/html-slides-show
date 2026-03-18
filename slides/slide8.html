@@ -3,99 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第三阶段：多模态扩展 - 幻灯片7</title>
+  <title>第三阶段：多模态扩展 - 幻灯片8</title>
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/slides.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* 修改文字框颜色，提高文字清晰度 */
-    .colorful-text-box.accent {
-      color: white;
-      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
-    }
-    /* 确保列内容可以完全滚动显示 */
     .two-column-layout .column {
       min-height: 0;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
+      padding: var(--spacing-md);
     }
-    .column > * {
-      flex-shrink: 0;
+    
+    /* 采用深色一体化卡片增加可读性 */
+    .pain-points-card {
+      background: var(--color-dark) !important;
+      border: var(--border-sharp);
+      border-color: var(--color-accent);
+      padding: var(--spacing-lg);
+      border-radius: calc(var(--pixel-size) * 3);
+      color: white !important;
+      flex: 1;
     }
-    .column > :last-child {
+    .pain-points-card .column-title {
+      color: var(--color-accent);
+      border-bottom: 3px solid var(--color-accent);
+      padding-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-pixel);
+      font-size: 1.2rem;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      color: var(--color-error);
+    }
+    .pixel-list-item {
+      background: transparent !important;
+      color: white !important;
+      border-color: rgba(255,255,255,0.2) !important;
+      padding: 12px !important;
+      margin-bottom: 12px !important;
+      font-size: 1.1rem !important;
+    }
+
+    /* 右侧布局调整 */
+    .solution-box {
+      background: var(--gradient-accent);
+      border: var(--border-sharp);
+      padding: var(--spacing-md);
+      border-radius: calc(var(--pixel-size) * 2);
+      color: var(--color-dark);
+      margin-bottom: var(--spacing-md);
+    }
+    .solution-text {
+      font-weight: 600;
+    }
+    .grok-card {
+      background: var(--gradient-surface) !important;
+      border: var(--border-sharp) !important;
+      padding: var(--spacing-lg) !important;
+      min-height: 180px !important; /* 增加高度以承载更多文字 */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .card-description {
+      line-height: 1.6 !important;
+    }
+    .image-frame {
+      border: var(--border-sharp);
+      background: white;
+      padding: 4px;
       margin-top: auto;
     }
-    .pixel-card,
-    .colorful-text-box,
-    .pixel-card-grid {
-      overflow-y: auto;
-      min-height: 0;
+    .new-requirement-text {
+      font-size: 1.1rem;
     }
-    /* 提高文字框对比度 */
-    .column .pixel-card:not(.bg-error) {
-      background: var(--gradient-dark);
-      color: var(--color-light);
-      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
-    }
-    .column .pixel-card:not(.bg-error) strong {
-      color: var(--color-accent);
+    .visual-ref-img {
+      width: 100%;
+      height: auto;
+      max-height: 150px;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
   <div class="slide-page slide-page-bg animate-fade">
     <header class="slide-header">
-      <h1 class="slide-title">第三阶段：多模态</h1>
+      <h1 class="slide-title">第三阶段：多模态扩展（影像共核）</h1>
       <p class="slide-subtitle">BEYOND TEXT: VISUAL REFERENCE</p>
     </header>
 
     <main class="slide-content">
       <div class="two-column-layout">
         <div class="column">
-          <h2 class="column-title">痛点与冲突</h2>
-          <div class="pixel-card bg-info color-white mb-4">
-            <p><strong>新需求的诞生：</strong>剧本写好了，到了视频制作环节，需要"视觉参考"来对齐团队理解，降低沟通成本。</p>
-          </div>
-          <div class="pixel-card bg-error color-white">
-            <p><strong>视频制作的高门槛：</strong></p>
-            <ul class="pixel-list mt-2">
-              <li class="pixel-list-item">专业工具（Runway、Pika）月费高昂</li>
-              <li class="pixel-list-item">本地部署需要高端GPU，投入巨大</li>
-              <li class="pixel-list-item">学习成本高，团队协作困难</li>
-              <li class="pixel-list-item">产出周期长，无法快速验证创意</li>
+          <div class="pain-points-card">
+            <h2 class="column-title">阻滞与冲突</h2>
+            
+            <p class="mt-2 new-requirement-text"><strong>新需求：</strong> 剧本完成后由于理解差异，急需"视觉参考"来统一团队认知。</p>
+            
+            <h3 class="section-title">高难度系数 (High Bar)</h3>
+            <ul class="pixel-list">
+              <li class="pixel-list-item"><strong>成本压力：</strong> 专业 MJ 工具月费高昂</li>
+              <li class="pixel-list-item"><strong>硬件瓶颈：</strong> 本地部署对显卡要求极大</li>
+              <li class="pixel-list-item"><strong>反复损耗：</strong> 效率低 & 理解偏差导致的沟通内耗</li>
             </ul>
-          </div>
-          <div class="colorful-text-box accent mt-4">
-            <h3 class="font-pixel">核心洞察</h3>
-            <p>我们不需要电影级大片，只需要<strong>"够用的视觉参考"</strong>来对齐团队理解，降低沟通成本。</p>
-          </div>
-          <div class="pixel-card mt-4">
-            <p><strong>传统流程：</strong> 文字描述 → 团队理解差异 → 反复修改 → 高成本试错</p>
-            <p class="mt-2"><strong>目标流程：</strong> 文字描述 → 快速可视化 → 共识对齐 → 高效执行</p>
           </div>
         </div>
 
         <div class="column">
-          <h2 class="column-title">解决方案：免费组合拳</h2>
-          <div class="pixel-card bg-accent color-dark mb-4">
-            <p><strong>核心思路：</strong>快速呈现"概念感"就行，用免费工具组合实现视觉参考生成。</p>
+          <div class="solution-box">
+            <p class="solution-text">核心逻辑：快速呈现"氛围感"，用免费云端工具取代繁复流程。</p>
           </div>
-          <div class="pixel-card-grid grid-1-col">
-            <div class="pixel-card-item text-left p-md">
-              <div class="card-title color-success">豆包 / Grok</div>
-              <p class="card-description">快速生成场景草图与氛围图，实时调整，零成本迭代。</p>
-            </div>
+          
+          <div class="pixel-card-item grok-card">
+            <div class="card-title color-primary text-pixel">豆包 / Grok</div>
+            <p class="card-description">极速生成逼真场景草图，支持各种艺术风格微调，且完全零成本。无需本地硬件，随时随地开启视觉对齐。</p>
           </div>
 
-          <!-- 添加图片6 -->
-          <div class="mt-3 image-container" style="border: var(--border-sharp); padding: calc(var(--pixel-size) * 2); background: white; cursor: pointer;">
-            <img src="../assets/images/6.png" alt="多模态扩展示意图" class="slide-image zoomable-image" style="width: 100%; height: auto;">
-            <p class="image-caption font-pixel font-0-8 mt-2">点击图片查看大图</p>
-          </div>
-
-          <div class="highlight-box mt-auto">
-             从"文字描述"到"一眼看穿"
+          <div class="image-frame mt-3">
+            <img src="../assets/images/6.png" alt="多模态扩展示意图" class="slide-image zoomable-image visual-ref-img">
           </div>
         </div>
       </div>
@@ -108,24 +136,20 @@
     </footer>
   </div>
 
-  <!-- Lightbox Modal -->
   <div id="lightbox-overlay" class="lightbox-overlay">
     <div class="lightbox-content">
-      <button class="lightbox-close" aria-label="关闭">✕</button>
+      <button class="lightbox-close">✕</button>
       <img class="lightbox-image" src="" alt="">
       <p class="lightbox-caption"></p>
     </div>
   </div>
 
   <script>
-    // Lightbox functionality
     document.addEventListener('DOMContentLoaded', function() {
       const lightboxOverlay = document.getElementById('lightbox-overlay');
       const lightboxImage = lightboxOverlay.querySelector('.lightbox-image');
       const lightboxCaption = lightboxOverlay.querySelector('.lightbox-caption');
-      const lightboxClose = lightboxOverlay.querySelector('.lightbox-close');
 
-      // 点击图片打开lightbox
       document.addEventListener('click', function(event) {
         const zoomableImg = event.target.closest('.zoomable-image');
         if (zoomableImg) {
@@ -136,21 +160,12 @@
           lightboxOverlay.classList.add('active');
         }
 
-        // 点击关闭按钮或背景关闭
         if (event.target === lightboxOverlay || event.target.closest('.lightbox-close')) {
           event.preventDefault();
           lightboxOverlay.classList.remove('active');
         }
       });
-
-      // ESC键关闭
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-          lightboxOverlay.classList.remove('active');
-        }
-      });
     });
   </script>
-
 </body>
 </html>

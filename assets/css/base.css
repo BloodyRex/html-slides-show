@@ -405,6 +405,18 @@ body {
   background: rgba(var(--color-light-rgb), 0.3);
 }
 
+/* Background utility classes */
+.bg-white { background: white !important; }
+.bg-primary { background: var(--gradient-primary) !important; color: white !important; }
+.bg-secondary { background: var(--gradient-secondary) !important; color: white !important; }
+.bg-accent { background: var(--gradient-accent) !important; color: var(--color-dark) !important; }
+.bg-surface { background: var(--gradient-surface) !important; }
+.bg-error { background: var(--color-error) !important; color: white !important; }
+.bg-info { background: var(--gradient-info) !important; color: var(--color-dark) !important; }
+.bg-success { background: var(--gradient-success) !important; color: var(--color-dark) !important; }
+.bg-warning { background: var(--gradient-warning) !important; color: var(--color-dark) !important; }
+.bg-dark { background: var(--gradient-dark) !important; color: white !important; }
+
 .colorful-text-box.accent {
   background: var(--gradient-accent);
   color: var(--color-dark);
@@ -413,6 +425,12 @@ body {
 .colorful-text-box.secondary {
   background: var(--gradient-secondary);
   color: var(--color-dark);
+}
+
+/* Fix for pixel-list-item background in colored boxes */
+.pixel-card .pixel-list-item,
+.colorful-text-box .pixel-list-item {
+  background: transparent;
 }
 
 /* 正文字体应用 */
@@ -427,7 +445,7 @@ body {
   font-family: var(--font-body-pixel);
   letter-spacing: 0.05em;
   line-height: 1.8;
-  font-size: 0.95rem;
+  font-size: 1.25rem; /* 增加正文字体大小 */
 }
 
 /* 小屏幕调整 */
@@ -442,7 +460,7 @@ body {
   .slide-content .sidebar p {
     letter-spacing: 0.03em;
     line-height: 1.7;
-    font-size: 0.9rem;
+    font-size: 1.15rem; /* 增加正文字体大小 */
   }
 }
 
@@ -458,7 +476,6 @@ body {
 /* 滑动优化 */
 .slide-content {
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* iOS平滑滚动 */
 }
 
 /* 移动端优化 */
